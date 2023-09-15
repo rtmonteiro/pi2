@@ -1,0 +1,497 @@
+<svg version="1.1" baseProfile="full" width="3259.5" height="416.0" viewbox="0 0 3259.5 416" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<desc >#.interface: fill=lightblue
+#.enumeration: fill=lightgreen
+#.type: fill=lightgray
+[Edicao|+volume: number;+numero: number;+mes: number;+ano: number;+tema: Tema;+submetidos: Artigo\[\];+selecionados: Artigo\[\]|]
+[Artigo|+id: number;+autores: Autor\[\];+titulo: string;+arquivo: Blob;+tema: Tema;+situacao: ArtigoSituacao|]
+[Institucao|+nome: string;+endereco: string|]
+[Tema|+nome: string|]
+[Autor|+nome: string;+email: string;+instituicao: Institucao|]
+[Avaliador|+nome: string;+email: string;+instituicao: Institucao;+temas: Tema\[\]|]
+[Avaliacao|+avaliador: Avaliador;+artigo: Artigo;+originalidade: number;+conteudo: number;+apresentacao: number|]
+[AssinantePessoaFisica|+email: string;+endereco: Endereco;+nome: string;+sexo: AssinanteSexo;+dataNascimento: Date;+identidade: string;+cpf: string|]
+[AssinantePessoaJuridica|+email: string;+endereco: Endereco;+razaoSocial: string;+cnpj: string;+responsavel: Assinante|]
+[Endereco|+rua: string;+numero: number;+bairro: string;+cidade: string;+estado: string;+cep: string|]
+[Assinatura|+assinante: Assinante;+edicao: Edicao;+data: Date;+valor: number;+formaPagamento: FormaPagamento;+situacao: AssinaturaSituacao|]
+[FormaPagamento|+valor: number;+administradoraCartao: string;+codigoAutorizacao: string|]
+[&lt;interface&gt;Colaborador|+nome: string;+email: string;+instituicao: Institucao|]
+[&lt;interface&gt;Assinante|+email: string;+endereco: Endereco|]
+[&lt;enumeration&gt;ArtigoSituacao|SUBMETIDO;EM_AVALIACAO;SELECIONADO;REJEITADO]
+[&lt;enumeration&gt;AssinanteSexo|MASCULINO;FEMININO;NAO_INFORMADO;OUTRO]
+[&lt;enumeration&gt;AssinaturaSituacao|PENDENTE;PAGA;CANCELADA]
+[Colaborador]&lt;:--[Autor]
+[Colaborador]&lt;:--[Avaliador]
+[Assinante]&lt;:--[AssinantePessoaFisica]
+[Assinante]&lt;:--[AssinantePessoaJuridica]</desc>
+<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="normal" font-style="normal">
+<g font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+<g stroke="transparent" fill="transparent">
+<rect x="0.0" y="0.0" height="416.0" width="3259.5" stroke="none"></rect>
+</g>
+<g transform="translate(8, 8)" fill="#33322E">
+<g transform="translate(20, 20)" fill="#eee8d5" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal">
+<g stroke-dasharray="6 6">
+<path d="M1965.1 138.7 L1917 180 L1917 230 L1917.0 230.0 " fill="none"></path>
+</g>
+<path d="M1968.6 142.7 L1965.1 138.7 L1961.7 134.6 L1975.3 130.0 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M2101.9 138.7 L2150 180 L2150 222.5 L2150.0 222.5 " fill="none"></path>
+</g>
+<path d="M2105.3 134.6 L2101.9 138.7 L2098.4 142.7 L2091.8 130.0 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M2447.9 130.9 L2387 180 L2387 200 L2387.0 200.0 " fill="none"></path>
+</g>
+<path d="M2451.3 135.0 L2447.9 130.9 L2444.6 126.7 L2458.3 122.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M2574.1 130.9 L2635 180 L2635 215 L2635.0 215.0 " fill="none"></path>
+</g>
+<path d="M2577.4 126.7 L2574.1 130.9 L2570.7 135.0 L2563.7 122.5 Z"></path>
+<g data-name="Edicao">
+<g fill="#eee8d5" stroke="#33322E" data-name="Edicao">
+<rect x="0.0" y="0.0" height="160.0" width="197.0" data-name="Edicao"></rect>
+<path d="M0.0 31.0 L197.0 31.0" fill="none" data-name="Edicao"></path>
+<path d="M0.0 152.0 L197.0 152.0" fill="none" data-name="Edicao"></path>
+</g>
+<g transform="translate(0, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Edicao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Edicao">
+<a id="../src/frontend/models/classes.ts.Edicao" xlink:href="../src/frontend/models/classes.ts"><text x="90.5" y="13.5" stroke="none" text-anchor="middle" data-name="Edicao">Edicao</text></a>
+
+</g>
+</g>
+<g transform="translate(0, 31)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Edicao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Edicao">
+<text x="0.0" y="13.5" stroke="none" data-name="Edicao">+volume: number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Edicao">+numero: number</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Edicao">+mes: number</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Edicao">+ano: number</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Edicao">+tema: Tema</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Edicao">+submetidos: Artigo[]</text>
+<text x="0.0" y="103.5" stroke="none" data-name="Edicao">+selecionados: Artigo[]</text>
+
+</g>
+</g>
+<g transform="translate(0, 152)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Edicao">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Edicao">
+
+</g>
+</g>
+</g>
+<g data-name="Artigo">
+<g fill="#eee8d5" stroke="#33322E" data-name="Artigo">
+<rect x="237.0" y="7.5" height="145.0" width="218.0" data-name="Artigo"></rect>
+<path d="M237.0 38.5 L455.0 38.5" fill="none" data-name="Artigo"></path>
+<path d="M237.0 144.5 L455.0 144.5" fill="none" data-name="Artigo"></path>
+</g>
+<g transform="translate(237, 7.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Artigo">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Artigo">
+<a id="../src/frontend/models/classes.ts.Artigo" xlink:href="../src/frontend/models/classes.ts"><text x="101.0" y="13.5" stroke="none" text-anchor="middle" data-name="Artigo">Artigo</text></a>
+
+</g>
+</g>
+<g transform="translate(237, 38.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Artigo">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Artigo">
+<text x="0.0" y="13.5" stroke="none" data-name="Artigo">+id: number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Artigo">+autores: Autor[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Artigo">+titulo: string</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Artigo">+arquivo: Blob</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Artigo">+tema: Tema</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Artigo">+situacao: ArtigoSituacao</text>
+
+</g>
+</g>
+<g transform="translate(237, 144.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Artigo">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Artigo">
+
+</g>
+</g>
+</g>
+<g data-name="Institucao">
+<g fill="#eee8d5" stroke="#33322E" data-name="Institucao">
+<rect x="495.0" y="37.5" height="85.0" width="155.0" data-name="Institucao"></rect>
+<path d="M495.0 68.5 L650.0 68.5" fill="none" data-name="Institucao"></path>
+<path d="M495.0 114.5 L650.0 114.5" fill="none" data-name="Institucao"></path>
+</g>
+<g transform="translate(495, 37.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Institucao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Institucao">
+<a id="../src/frontend/models/classes.ts.Institucao" xlink:href="../src/frontend/models/classes.ts"><text x="69.5" y="13.5" stroke="none" text-anchor="middle" data-name="Institucao">Institucao</text></a>
+
+</g>
+</g>
+<g transform="translate(495, 68.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Institucao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Institucao">
+<text x="0.0" y="13.5" stroke="none" data-name="Institucao">+nome: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Institucao">+endereco: string</text>
+
+</g>
+</g>
+<g transform="translate(495, 114.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Institucao">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Institucao">
+
+</g>
+</g>
+</g>
+<g data-name="Tema">
+<g fill="#eee8d5" stroke="#33322E" data-name="Tema">
+<rect x="690.0" y="45.0" height="70.0" width="124.0" data-name="Tema"></rect>
+<path d="M690.0 76.0 L814.0 76.0" fill="none" data-name="Tema"></path>
+<path d="M690.0 107.0 L814.0 107.0" fill="none" data-name="Tema"></path>
+</g>
+<g transform="translate(690, 45)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Tema">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Tema">
+<a id="../src/frontend/models/classes.ts.Tema" xlink:href="../src/frontend/models/classes.ts"><text x="54.0" y="13.5" stroke="none" text-anchor="middle" data-name="Tema">Tema</text></a>
+
+</g>
+</g>
+<g transform="translate(690, 76)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Tema">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Tema">
+<text x="0.0" y="13.5" stroke="none" data-name="Tema">+nome: string</text>
+
+</g>
+</g>
+<g transform="translate(690, 107)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Tema">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Tema">
+
+</g>
+</g>
+</g>
+<g data-name="Autor">
+<g fill="#eee8d5" stroke="#33322E" data-name="Autor">
+<rect x="1820.5" y="230.0" height="100.0" width="193.0" data-name="Autor"></rect>
+<path d="M1820.5 261.0 L2013.5 261.0" fill="none" data-name="Autor"></path>
+<path d="M1820.5 322.0 L2013.5 322.0" fill="none" data-name="Autor"></path>
+</g>
+<g transform="translate(1820.5, 230)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Autor">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Autor">
+<a id="../src/frontend/models/classes.ts.Autor" xlink:href="../src/frontend/models/classes.ts"><text x="88.5" y="13.5" stroke="none" text-anchor="middle" data-name="Autor">Autor</text></a>
+
+</g>
+</g>
+<g transform="translate(1820.5, 261)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Autor">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Autor">
+<text x="0.0" y="13.5" stroke="none" data-name="Autor">+nome: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Autor">+email: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Autor">+instituicao: Institucao</text>
+
+</g>
+</g>
+<g transform="translate(1820.5, 322)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Autor">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Autor">
+
+</g>
+</g>
+</g>
+<g data-name="Avaliador">
+<g fill="#eee8d5" stroke="#33322E" data-name="Avaliador">
+<rect x="2053.5" y="222.5" height="115.0" width="193.0" data-name="Avaliador"></rect>
+<path d="M2053.5 253.5 L2246.5 253.5" fill="none" data-name="Avaliador"></path>
+<path d="M2053.5 329.5 L2246.5 329.5" fill="none" data-name="Avaliador"></path>
+</g>
+<g transform="translate(2053.5, 222.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Avaliador">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Avaliador">
+<a id="../src/frontend/models/classes.ts.Avaliador" xlink:href="../src/frontend/models/classes.ts"><text x="88.5" y="13.5" stroke="none" text-anchor="middle" data-name="Avaliador">Avaliador</text></a>
+
+</g>
+</g>
+<g transform="translate(2053.5, 253.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Avaliador">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Avaliador">
+<text x="0.0" y="13.5" stroke="none" data-name="Avaliador">+nome: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Avaliador">+email: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Avaliador">+instituicao: Institucao</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Avaliador">+temas: Tema[]</text>
+
+</g>
+</g>
+<g transform="translate(2053.5, 329.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Avaliador">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Avaliador">
+
+</g>
+</g>
+</g>
+<g data-name="Avaliacao">
+<g fill="#eee8d5" stroke="#33322E" data-name="Avaliacao">
+<rect x="854.0" y="15.0" height="130.0" width="205.0" data-name="Avaliacao"></rect>
+<path d="M854.0 46.0 L1059.0 46.0" fill="none" data-name="Avaliacao"></path>
+<path d="M854.0 137.0 L1059.0 137.0" fill="none" data-name="Avaliacao"></path>
+</g>
+<g transform="translate(854, 15)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Avaliacao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Avaliacao">
+<a id="../src/frontend/models/classes.ts.Avaliacao" xlink:href="../src/frontend/models/classes.ts"><text x="94.5" y="13.5" stroke="none" text-anchor="middle" data-name="Avaliacao">Avaliacao</text></a>
+
+</g>
+</g>
+<g transform="translate(854, 46)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Avaliacao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Avaliacao">
+<text x="0.0" y="13.5" stroke="none" data-name="Avaliacao">+avaliador: Avaliador</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Avaliacao">+artigo: Artigo</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Avaliacao">+originalidade: number</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Avaliacao">+conteudo: number</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Avaliacao">+apresentacao: number</text>
+
+</g>
+</g>
+<g transform="translate(854, 137)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Avaliacao">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Avaliacao">
+
+</g>
+</g>
+</g>
+<g data-name="AssinantePessoaFisica">
+<g fill="#eee8d5" stroke="#33322E" data-name="AssinantePessoaFisica">
+<rect x="2286.5" y="200.0" height="160.0" width="201.0" data-name="AssinantePessoaFisica"></rect>
+<path d="M2286.5 231.0 L2487.5 231.0" fill="none" data-name="AssinantePessoaFisica"></path>
+<path d="M2286.5 352.0 L2487.5 352.0" fill="none" data-name="AssinantePessoaFisica"></path>
+</g>
+<g transform="translate(2286.5, 200)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AssinantePessoaFisica">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AssinantePessoaFisica">
+<a id="../src/frontend/models/classes.ts.AssinantePessoaFisica" xlink:href="../src/frontend/models/classes.ts"><text x="92.5" y="13.5" stroke="none" text-anchor="middle" data-name="AssinantePessoaFisica">AssinantePessoaFisica</text></a>
+
+</g>
+</g>
+<g transform="translate(2286.5, 231)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinantePessoaFisica">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AssinantePessoaFisica">
+<text x="0.0" y="13.5" stroke="none" data-name="AssinantePessoaFisica">+email: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AssinantePessoaFisica">+endereco: Endereco</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AssinantePessoaFisica">+nome: string</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AssinantePessoaFisica">+sexo: AssinanteSexo</text>
+<text x="0.0" y="73.5" stroke="none" data-name="AssinantePessoaFisica">+dataNascimento: Date</text>
+<text x="0.0" y="88.5" stroke="none" data-name="AssinantePessoaFisica">+identidade: string</text>
+<text x="0.0" y="103.5" stroke="none" data-name="AssinantePessoaFisica">+cpf: string</text>
+
+</g>
+</g>
+<g transform="translate(2286.5, 352)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinantePessoaFisica">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AssinantePessoaFisica">
+
+</g>
+</g>
+</g>
+<g data-name="AssinantePessoaJuridica">
+<g fill="#eee8d5" stroke="#33322E" data-name="AssinantePessoaJuridica">
+<rect x="2527.5" y="215.0" height="130.0" width="215.0" data-name="AssinantePessoaJuridica"></rect>
+<path d="M2527.5 246.0 L2742.5 246.0" fill="none" data-name="AssinantePessoaJuridica"></path>
+<path d="M2527.5 337.0 L2742.5 337.0" fill="none" data-name="AssinantePessoaJuridica"></path>
+</g>
+<g transform="translate(2527.5, 215)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AssinantePessoaJuridica">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AssinantePessoaJuridica">
+<a id="../src/frontend/models/classes.ts.AssinantePessoaJuridica" xlink:href="../src/frontend/models/classes.ts"><text x="99.5" y="13.5" stroke="none" text-anchor="middle" data-name="AssinantePessoaJuridica">AssinantePessoaJuridica</text></a>
+
+</g>
+</g>
+<g transform="translate(2527.5, 246)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinantePessoaJuridica">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AssinantePessoaJuridica">
+<text x="0.0" y="13.5" stroke="none" data-name="AssinantePessoaJuridica">+email: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AssinantePessoaJuridica">+endereco: Endereco</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AssinantePessoaJuridica">+razaoSocial: string</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AssinantePessoaJuridica">+cnpj: string</text>
+<text x="0.0" y="73.5" stroke="none" data-name="AssinantePessoaJuridica">+responsavel: Assinante</text>
+
+</g>
+</g>
+<g transform="translate(2527.5, 337)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinantePessoaJuridica">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AssinantePessoaJuridica">
+
+</g>
+</g>
+</g>
+<g data-name="Endereco">
+<g fill="#eee8d5" stroke="#33322E" data-name="Endereco">
+<rect x="1099.0" y="7.5" height="145.0" width="156.0" data-name="Endereco"></rect>
+<path d="M1099.0 38.5 L1255.0 38.5" fill="none" data-name="Endereco"></path>
+<path d="M1099.0 144.5 L1255.0 144.5" fill="none" data-name="Endereco"></path>
+</g>
+<g transform="translate(1099, 7.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Endereco">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Endereco">
+<a id="../src/frontend/models/classes.ts.Endereco" xlink:href="../src/frontend/models/classes.ts"><text x="70.0" y="13.5" stroke="none" text-anchor="middle" data-name="Endereco">Endereco</text></a>
+
+</g>
+</g>
+<g transform="translate(1099, 38.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Endereco">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Endereco">
+<text x="0.0" y="13.5" stroke="none" data-name="Endereco">+rua: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Endereco">+numero: number</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Endereco">+bairro: string</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Endereco">+cidade: string</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Endereco">+estado: string</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Endereco">+cep: string</text>
+
+</g>
+</g>
+<g transform="translate(1099, 144.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Endereco">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Endereco">
+
+</g>
+</g>
+</g>
+<g data-name="Assinatura">
+<g fill="#eee8d5" stroke="#33322E" data-name="Assinatura">
+<rect x="1295.0" y="7.5" height="145.0" width="311.0" data-name="Assinatura"></rect>
+<path d="M1295.0 38.5 L1606.0 38.5" fill="none" data-name="Assinatura"></path>
+<path d="M1295.0 144.5 L1606.0 144.5" fill="none" data-name="Assinatura"></path>
+</g>
+<g transform="translate(1295, 7.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Assinatura">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Assinatura">
+<a id="../src/frontend/models/classes.ts.Assinatura" xlink:href="../src/frontend/models/classes.ts"><text x="147.5" y="13.5" stroke="none" text-anchor="middle" data-name="Assinatura">Assinatura</text></a>
+
+</g>
+</g>
+<g transform="translate(1295, 38.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Assinatura">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Assinatura">
+<text x="0.0" y="13.5" stroke="none" data-name="Assinatura">+assinante: Assinante</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Assinatura">+edicao: Edicao</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Assinatura">+data: Date</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Assinatura">+valor: number</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Assinatura">+formaPagamento: FormaPagamento</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Assinatura">+situacao: AssinaturaSituacao</text>
+
+</g>
+</g>
+<g transform="translate(1295, 144.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Assinatura">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Assinatura">
+
+</g>
+</g>
+</g>
+<g data-name="FormaPagamento">
+<g fill="#eee8d5" stroke="#33322E" data-name="FormaPagamento">
+<rect x="1646.0" y="30.0" height="100.0" width="251.0" data-name="FormaPagamento"></rect>
+<path d="M1646.0 61.0 L1897.0 61.0" fill="none" data-name="FormaPagamento"></path>
+<path d="M1646.0 122.0 L1897.0 122.0" fill="none" data-name="FormaPagamento"></path>
+</g>
+<g transform="translate(1646, 30)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="FormaPagamento">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="FormaPagamento">
+<a id="../src/frontend/models/classes.ts.FormaPagamento" xlink:href="../src/frontend/models/classes.ts"><text x="117.5" y="13.5" stroke="none" text-anchor="middle" data-name="FormaPagamento">FormaPagamento</text></a>
+
+</g>
+</g>
+<g transform="translate(1646, 61)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormaPagamento">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="FormaPagamento">
+<text x="0.0" y="13.5" stroke="none" data-name="FormaPagamento">+valor: number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="FormaPagamento">+administradoraCartao: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="FormaPagamento">+codigoAutorizacao: string</text>
+
+</g>
+</g>
+<g transform="translate(1646, 122)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormaPagamento">
+<g transform="translate(8, 8)" fill="#33322E" data-name="FormaPagamento">
+
+</g>
+</g>
+</g>
+<g data-name="Colaborador">
+<g fill="lightblue" stroke="#33322E" data-name="Colaborador">
+<rect x="1937.0" y="30.0" height="100.0" width="193.0" data-name="Colaborador"></rect>
+<path d="M1937.0 61.0 L2130.0 61.0" fill="none" data-name="Colaborador"></path>
+<path d="M1937.0 122.0 L2130.0 122.0" fill="none" data-name="Colaborador"></path>
+</g>
+<g transform="translate(1937, 30)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Colaborador">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Colaborador">
+<a id="../src/frontend/models/classes.ts.Colaborador" xlink:href="../src/frontend/models/classes.ts"><text x="88.5" y="13.5" stroke="none" text-anchor="middle" data-name="Colaborador">Colaborador</text></a>
+
+</g>
+</g>
+<g transform="translate(1937, 61)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Colaborador">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Colaborador">
+<text x="0.0" y="13.5" stroke="none" data-name="Colaborador">+nome: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Colaborador">+email: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Colaborador">+instituicao: Institucao</text>
+
+</g>
+</g>
+<g transform="translate(1937, 122)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Colaborador">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Colaborador">
+
+</g>
+</g>
+</g>
+<g data-name="Assinante">
+<g fill="lightblue" stroke="#33322E" data-name="Assinante">
+<rect x="2417.5" y="37.5" height="85.0" width="187.0" data-name="Assinante"></rect>
+<path d="M2417.5 68.5 L2604.5 68.5" fill="none" data-name="Assinante"></path>
+<path d="M2417.5 114.5 L2604.5 114.5" fill="none" data-name="Assinante"></path>
+</g>
+<g transform="translate(2417.5, 37.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Assinante">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Assinante">
+<a id="../src/frontend/models/classes.ts.Assinante" xlink:href="../src/frontend/models/classes.ts"><text x="85.5" y="13.5" stroke="none" text-anchor="middle" data-name="Assinante">Assinante</text></a>
+
+</g>
+</g>
+<g transform="translate(2417.5, 68.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Assinante">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Assinante">
+<text x="0.0" y="13.5" stroke="none" data-name="Assinante">+email: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Assinante">+endereco: Endereco</text>
+
+</g>
+</g>
+<g transform="translate(2417.5, 114.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Assinante">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Assinante">
+
+</g>
+</g>
+</g>
+<g data-name="ArtigoSituacao">
+<g fill="lightgreen" stroke="#33322E" data-name="ArtigoSituacao">
+<rect x="2644.5" y="26.5" height="107.0" width="146.0" data-name="ArtigoSituacao"></rect>
+<path d="M2644.5 57.5 L2790.5 57.5" fill="none" data-name="ArtigoSituacao"></path>
+</g>
+<g transform="translate(2644.5, 26.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ArtigoSituacao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ArtigoSituacao">
+<a id="../src/frontend/models/classes.ts.ArtigoSituacao" xlink:href="../src/frontend/models/classes.ts"><text x="65.0" y="13.5" stroke="none" text-anchor="middle" data-name="ArtigoSituacao">ArtigoSituacao</text></a>
+
+</g>
+</g>
+<g transform="translate(2644.5, 57.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ArtigoSituacao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ArtigoSituacao">
+<text x="0.0" y="13.5" stroke="none" data-name="ArtigoSituacao">SUBMETIDO</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ArtigoSituacao">EM_AVALIACAO</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ArtigoSituacao">SELECIONADO</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ArtigoSituacao">REJEITADO</text>
+
+</g>
+</g>
+</g>
+<g data-name="AssinanteSexo">
+<g fill="lightgreen" stroke="#33322E" data-name="AssinanteSexo">
+<rect x="2830.5" y="26.5" height="107.0" width="164.0" data-name="AssinanteSexo"></rect>
+<path d="M2830.5 57.5 L2994.5 57.5" fill="none" data-name="AssinanteSexo"></path>
+</g>
+<g transform="translate(2830.5, 26.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinanteSexo">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AssinanteSexo">
+<a id="../src/frontend/models/classes.ts.AssinanteSexo" xlink:href="../src/frontend/models/classes.ts"><text x="74.0" y="13.5" stroke="none" text-anchor="middle" data-name="AssinanteSexo">AssinanteSexo</text></a>
+
+</g>
+</g>
+<g transform="translate(2830.5, 57.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinanteSexo">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AssinanteSexo">
+<text x="0.0" y="13.5" stroke="none" data-name="AssinanteSexo">MASCULINO</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AssinanteSexo">FEMININO</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AssinanteSexo">NAO_INFORMADO</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AssinanteSexo">OUTRO</text>
+
+</g>
+</g>
+</g>
+<g data-name="AssinaturaSituacao">
+<g fill="lightgreen" stroke="#33322E" data-name="AssinaturaSituacao">
+<rect x="3034.5" y="34.0" height="92.0" width="169.0" data-name="AssinaturaSituacao"></rect>
+<path d="M3034.5 65.0 L3203.5 65.0" fill="none" data-name="AssinaturaSituacao"></path>
+</g>
+<g transform="translate(3034.5, 34)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinaturaSituacao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AssinaturaSituacao">
+<a id="../src/frontend/models/classes.ts.AssinaturaSituacao" xlink:href="../src/frontend/models/classes.ts"><text x="76.5" y="13.5" stroke="none" text-anchor="middle" data-name="AssinaturaSituacao">AssinaturaSituacao</text></a>
+
+</g>
+</g>
+<g transform="translate(3034.5, 65)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AssinaturaSituacao">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AssinaturaSituacao">
+<text x="0.0" y="13.5" stroke="none" data-name="AssinaturaSituacao">PENDENTE</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AssinaturaSituacao">PAGA</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AssinaturaSituacao">CANCELADA</text>
+
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

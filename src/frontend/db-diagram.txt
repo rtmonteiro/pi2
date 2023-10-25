@@ -120,7 +120,7 @@ Table info_entrada {
 
 Table fotos {
   id integer [pk, increment]
-  info_id integer [ref: < info_entrada.id]
+  info_id integer [ref: - info_entrada.id]
   fotoRostoFrente blob
   fotoRostoEsquerda blob
   fotoRostoDireita blob

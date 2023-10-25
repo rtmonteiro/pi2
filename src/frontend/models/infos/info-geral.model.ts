@@ -3,14 +3,12 @@ import { Historico, ETipoHistorico } from "models/historico.model";
 enum ETipoGeral {
     TATUAGEM,
     CONVIVIO_FAMILIAR,
-    CONVIVIO_SOCIAL,
-    MOTIVO_PROCURA,
     DROGA_CAUSOU,
-    INTERNADO,
+    INTERNADO, // Internacao
     TRAUMAS,
     SUSTENTO_VICIO,
-    CONDENADO,
-    RELIGIAO,
+    CONDENADO, // Condenacao
+    RELIGIAO, // Religiao
     MEIO_COMUNICACAO,
     IGREJA_FREQUENTADA,
     OUTRO,
@@ -19,7 +17,8 @@ enum ETipoGeral {
 export class InfoGeral extends Historico {
     constructor(
         public tipoGeral: ETipoGeral,
-        public CampoId?: number,
+        public campoId?: number,
+        public campo?: Internacao | Condenacao | Religiao,
         public valorBoolean?: boolean,
         public valorString?: string,
     ) {
@@ -27,32 +26,27 @@ export class InfoGeral extends Historico {
     }
 }
 
-// Table InfoGeral
+class Internacao {
+    constructor(
+        public localizacao: string,
+        public motivo: string,
+        public tempoInternado: string,
+    ) { }
+}
 
-// | Id | TipoGeral | CampoId | ValorBoolean | ValorString | */
-// |----|-----------|---------|--------------|-------------| */
-// |  1 | INTERNADO |        1|              |             | */
+class Condenacao {
+    constructor(
+        public motivo: string,
+        public condenacaoPaga: boolean,
+    ) { }
+}
 
-
-// Table Internacao (InfoGeral)
-
-// | Id | AcolhidoId | Localizacao | Motivo | TempoInternado | */
-// |----|------------|-------------|--------|----------------| */
-// |  1 |          1 | São Paulo   |        | 1 ano          | */
-
-// Table Condenacao (InfoGeral)
-
-// | Id | AcolhidoId | Condenado | Motivo | CondenacaoPaga | */
-// |----|------------|-----------|--------|----------------| */
-// |  1 |          1 | Sim       | Roubou | Sim            | */
-// |  2 |          2 | Não       |        |                | */
-
-
-// Table Religiao (InfoGeral)
-
-// | Id | AcolhidoId | Religiao | Familiares | */
-// |----|------------|----------|------------| */
-// |  1 |          1 | Católica | Católica   | */
+class Religiao {
+    constructor(
+        public religiao: string,
+        public familiares: string,
+    ) { }
+}
 
 // Table Historico
 
@@ -60,3 +54,31 @@ export class InfoGeral extends Historico {
 // |----|------------|---------------|--------|-------------*/
 // |  1 |          1 | GERAL         |      1 | 2018-01-01  */
 // |  2 |          1 | GERAL         |      2 | 2018-01-01  */
+
+// Table InfoGeral
+
+// | Id | TipoGeral | CampoId | ValorBoolean | ValorString | */
+// |----|-----------|---------|--------------|-------------| */
+// |  1 | INTERNADO |        1|              |             | */
+// |  2 | MOTIVO_PROCURA |    |              | Precisava   | */
+
+
+// Table Internacao (InfoGeral)
+
+// | Id | Localizacao | Motivo | TempoInternado | */
+// |----|-------------|--------|----------------| */
+// |  1 | São Paulo   |        | 1 ano          | */
+
+// Table Condenacao (InfoGeral)
+
+// | Id | Condenado | Motivo | CondenacaoPaga | */
+// |----|-----------|--------|----------------| */
+// |  1 | Sim       | Roubou | Sim            | */
+// |  2 | Não       |        |                | */
+
+
+// Table Religiao (InfoGeral)
+
+// | Id | Religiao | Familiares | */
+// |----|----------|------------| */
+// |  1 | Católica | Católica   | */

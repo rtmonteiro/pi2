@@ -1,0 +1,130 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table enderecos {
+  acolhido_id integer [ref: < acolhidos.id]
+  rua varchar
+  numero varchar
+  bairro varchar
+  cidade varchar
+  estado varchar
+  cep varchar
+  complemento varchar
+}
+
+Table usuarios {
+  id integer [pk, increment]
+  username varchar
+  nome varchar
+  senha varchar
+  data_criacao datetime
+}
+
+Table acolhidos {
+  id integer [pk, increment]
+  nome varchar
+  mae varchar
+  pai varchar
+  data_nascimento Date
+  sexo integer
+  naturalidade varchar
+  pai_id integer [null]
+}
+
+Table usuario_papel {
+  tipo_id integer
+  usuario_id integer [ref: <> usuarios.id]
+}
+
+Table historicos {
+  id integer [pk, increment]
+  acolhido_id integer [ref: < acolhidos.id]
+  data_criacao datetime
+  tipo_info integer
+}
+
+Table info_medicas {
+  id integer [pk, increment]
+  historico_id integer [ref: < historicos.id]
+  tipo_info integer
+  valor_info varchar
+}
+
+Table info_drogas {
+  id integer [pk, increment]
+  historico_id integer [ref: < historicos.id]
+  nome varchar
+  tempo datetime
+}
+
+Table info_saude {
+  id integer [pk, increment]
+  historico_id integer [ref: < historicos.id]
+  receita blob
+  medicamento varchar
+  horarios_dia bit
+  horarios_hora json
+}
+
+Table info_saida {
+  id integer [pk, increment]
+  historico_id integer [ref: < historicos.id]
+  motivo text
+  desistiu boolean
+}
+
+Table info_geral {
+  id integer
+  historico_id integer [ref: < historicos.id]
+  tipo_info integer
+  campo_id integer
+  valor_info varchar
+  data_criacao Date
+}
+
+Table internacoes {
+  id integer [pk, increment]
+  info_id integer [ref: < info_geral.id]
+  localizacao varchar
+  motivo text
+  duracao datetime
+}
+
+Table condenacoes {
+  id integer [pk, increment]
+  info_id integer [ref: < info_geral.id]
+  condenacao boolean
+  motivo text [null]
+  cumpriu boolean [null]
+}
+
+Table religioes {
+  id integer [pk, increment]
+  info_id integer [ref: < info_geral.id]
+  religiao varchar
+  familiares varchar
+}
+
+Table info_entrada {
+  id integer [pk, increment]
+  historico_id integer [ref: < historicos.id]
+  celular varchar
+  contato varchar
+  escolaridade varchar
+  profissao varchar
+  beneficio varchar
+  motivoProcura text
+  nomeResponsavel varchar
+  celularResponsavel varchar
+}
+
+Table fotos {
+  id integer [pk, increment]
+  info_id integer [ref: < info_entrada.id]
+  fotoRostoFrente blob
+  fotoRostoEsquerda blob
+  fotoRostoDireita blob
+  fotoCorpo blob
+}
+ 
+Ref: "acolhidos"."pai_id" < "acolhidos"."id"

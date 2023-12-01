@@ -3,6 +3,8 @@
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG TARGETARCH
 WORKDIR /source
+EXPOSE 8080
+EXPOSE 8081
 
 # copy csproj and restore as distinct layers
 COPY dotnet.API/*.csproj .

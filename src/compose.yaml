@@ -1,19 +1,19 @@
 services:
-  web:
-    build:
-      context: angular
-      target: builder
-    ports:
-      - 4200:4200
-    volumes:
-      - ./angular:/project
-      - /project/node_modules
+  # web:
+  #   build:
+  #     context: angular
+  #     target: builder
+  #   ports:
+  #     - 4200:4200
+  #   volumes:
+  #     - ./angular:/project
+  #     - /project/node_modules
   db:
     image: postgres:latest
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: sca_amaes
+      POSTGRES_DB: clinica_alma
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: abc1234%
+      POSTGRES_PASSWORD: postgres
     

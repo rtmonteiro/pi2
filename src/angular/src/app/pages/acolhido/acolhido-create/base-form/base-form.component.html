@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+    <div>
+        <label for="nome">nome</label>
+        <input type="text" formControlName="nome" id="nome">
+    </div>
+    <div>
+        <label for="mae">mae</label>
+        <input type="text" formControlName="mae" id="mae">
+    </div>
+    <div>
+        <label for="pai">pai</label>
+        <input type="text" formControlName="pai" id="pai">
+    </div>
+    <div>
+        <label for="dataNascimento">dataNascimento</label>
+        <input type="text" formControlName="dataNascimento" id="dataNascimento">
+    </div>
+    <div>
+        <label for="sexo">sexo</label>
+        <input type="text" formControlName="sexo" id="sexo">
+    </div>
+    <div>
+        <label for="naturalidade">naturalidade</label>
+        <input type="text" formControlName="naturalidade" id="naturalidade">
+    </div>
+</form>
+
+<app-form-debug [form]="form"></app-form-debug>

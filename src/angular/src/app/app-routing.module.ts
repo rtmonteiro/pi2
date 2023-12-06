@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { AcolhidosListComponent } from './pages/acolhidos-list/acolhidos-list.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,19 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'usuarios',
+    children: [
+      {
+        path: '',
+        component: UsuariosComponent
+      },
+      {
+        path: ':id',
+        component: UsuarioComponent
+      }
+    ]
   },
   {
     path: '**',

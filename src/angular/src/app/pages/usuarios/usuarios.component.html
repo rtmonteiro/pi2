@@ -1,0 +1,9 @@
+<h1>Lista de Usuários</h1>
+
+<div class="user-list">
+  <app-usuario-item [user]="user" *ngFor="let user of users"></app-usuario-item>
+</div>
+
+<div class="footer">
+  <a class="btn" [routerLink]="['0']">Criar Usuário</a>
+</div>

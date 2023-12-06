@@ -13,6 +13,10 @@ export class MenuComponent implements OnInit {
       route: "/acolhidos",
       name: "Acolhidos"
     },
+    {
+      route: "/usuarios",
+      name: "Lista Usuários"
+    }
   ]
 
   constructor() { }

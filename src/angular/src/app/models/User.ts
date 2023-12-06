@@ -5,6 +5,13 @@ export class User {
   ) { }
 }
 
+export interface IUserModel {
+  id: number,
+  email: string,
+  password: string,
+  name: string,
+}
+
 export class UserResponse {
   constructor(
     public token: string

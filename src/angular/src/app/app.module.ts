@@ -7,18 +7,23 @@ import { AcolhidosListComponent } from './pages/acolhidos-list/acolhidos-list.co
 import { LoginModule } from './pages/login/login.module';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { UsuarioItemComponent } from './components/usuario-item/usuario-item.component';
+import { UsuariosModule } from './pages/usuarios/usuarios.module';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AcolhidosListComponent,
     MenuItemComponent,
-    MenuComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    UsuariosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

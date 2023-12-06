@@ -8,3 +8,12 @@ services:
     volumes:
       - ./angular:/project
       - /project/node_modules
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: sca_amaes
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: abc1234%
+    

@@ -10,7 +10,7 @@ export class MenuComponent implements OnInit {
 
   menuList: MenuItem[] = [
     {
-      route: "acolhidos",
+      route: "/acolhidos",
       name: "Acolhidos"
     },
   ]

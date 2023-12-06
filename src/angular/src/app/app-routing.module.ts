@@ -6,7 +6,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 
 const routes: Routes = [
   {
-    path: "acolhido",
+    path: "acolhidos",
     component: AcolhidosListComponent
   },
   {

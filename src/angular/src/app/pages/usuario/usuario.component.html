@@ -1,1 +1,22 @@
-<p>usuario works!</p>
+<h1>Novo Usuário</h1>
+
+<form>
+  <label for="username">Usuário*</label>
+  <input type="text" name="usaname" id="username">
+
+  <label for="password">Senha*</label>
+  <input type="password" name="password" id="password">
+
+  <fieldset>
+    <legend>Tipo de Usuário</legend>
+    <input type="radio" id="secretary" name="user_type" value="secretary" checked>
+    <label for="secretary">Secretário(a)</label>
+    <input type="radio" id="pastor" name="user_type" value="pastor">
+    <label for="pastor">Pastor</label>
+  </fieldset>
+
+  <div>
+    <button type="button" (click)="cancel()">Cancelar</button>
+    <button type="submit">Salvar</button>
+  </div>
+</form>

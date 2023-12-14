@@ -1,0 +1,5 @@
+<div>
+    <select name="form-array-options" id="form-array-options" (change)="onChange($event)">
+        <option *ngFor="let i of options" [value]="i.value">{{i.name}}</option>
+    </select>
+</div>

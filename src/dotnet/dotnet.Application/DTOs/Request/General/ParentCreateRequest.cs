@@ -1,4 +1,4 @@
-namespace dotnet.Application.DTOs.Request.DocumentRequest;
+namespace dotnet.Application.DTOs.Request.General;
 
 public class ParentCreateRequest
 {

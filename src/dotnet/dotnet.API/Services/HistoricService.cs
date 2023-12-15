@@ -19,11 +19,6 @@ public class HistoricService(CAContext context) : Service<Historic>(context)
         throw new NotImplementedException();
     }
     
-    public async Task<List<Historic>> GetAsyncByAssisted(long id)
-    {
-        var list = context.Historics.AsNoTracking().Where(a => a.Assisted.Id == id).ToList();
-        return list;
-    }
 
     public override Task<Historic?> GetAsyncTracked(long id)
     {

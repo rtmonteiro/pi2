@@ -36,6 +36,7 @@ builder.Services.AddSwagger();
 builder.Services.AddScoped<IIdentityService, ClinicaIdentityService>();
 builder.Services.AddScoped<AssistedService>();
 builder.Services.AddScoped<AddressService>();
+builder.Services.AddScoped<HistoricService>();
 
 builder.Services.AddMapper();
 
@@ -49,6 +50,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 app.UseHttpsRedirection();
 

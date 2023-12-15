@@ -1,7 +1,8 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using dotnet.Application.DTOs.Request.DocumentRequest;
+using dotnet.Application.DTOs.Request.General;
+using dotnet.Application.Enums;
 using dotnet.Application.Models;
 
 
@@ -32,7 +33,7 @@ public class AssistedCreateRequest
     }
     
     [Required(ErrorMessage = "O sexo do acolhido é obrigatório.")]
-    public string? Gender { get; set; }
+    public Gender? Gender { get; set; }
     
     public string? Nationality { get; set; }
     

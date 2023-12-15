@@ -1,15 +1,12 @@
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
+using dotnet.Application.DTOs.Request.DocumentRequest;
 using dotnet.Application.Enums;
+using dotnet.Application.Models;
 
-namespace dotnet.Application.Models;
+namespace dotnet.Application.DTOs.Response.Assisted;
 
-public class Assisted
+public class AssistedGetResponse
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public long Id { get; set; }
     
     public required string Name { get; set; }
     
@@ -18,6 +15,7 @@ public class Assisted
     public string? Father { get; set; }
     
     private DateTime _date;
+    
     public string? BirthDate
     {
         get => _date.ToString("dd/MM/yyyy");
@@ -34,15 +32,12 @@ public class Assisted
     
     public string? Nationality { get; set; }
     
-    public virtual Assisted? Parent { get; set; }
-    
-    public virtual Address Address { get; set; } = null!;
+    public AddressGetResponse Address { get; set; } = null!;
 
-    public virtual List<Document>? Documents { get; set; }
+    public List<DocumentGetResponse>? Documents { get; set; }
 
-    public virtual List<Historic> Historics { get; set; } = new List<Historic>(); 
+    public long? ParentId { get; set; }
     
-    [DefaultValue(false)]
-    public bool IsDeleted { get; set; }
-    
+    public List<Historic>? Historics { get; set; }
+
 }

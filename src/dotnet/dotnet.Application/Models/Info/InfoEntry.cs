@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace dotnet.Application.Models.Info;
 
-public class InfoEntry : Historic
+public class InfoEntry
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long Id { get; set; }
@@ -19,17 +19,18 @@ public class InfoEntry : Historic
     
     public string ResponsibleName  { get; set; }
     
-    [Column(TypeName = "image")]
+    public string FinencialAssistence  { get; set; }
+    
+    [Column(TypeName = "BYTEA")]
     public byte[] FaceFrontPhoto { get; set; }
     
-    [Column(TypeName = "image")]
+    [Column(TypeName = "BYTEA")]
     public byte[] FaceLeftPhoto { get; set; }
     
-    [Column(TypeName = "image")]
+    [Column(TypeName = "BYTEA")]
     public byte[] FaceRightPhoto { get; set; }
     
-    [Column(TypeName = "image")]
+    [Column(TypeName = "BYTEA")]
     public byte[] FullBodyPhoto { get; set; }
     
-    public Historic? Historic { get; set; }
 }

@@ -1,6 +1,6 @@
-namespace dotnet.Application.DTOs.Request.General;
+namespace dotnet.Application.DTOs.Request.DocumentRequest;
 
-public class AddressCreateRequest
+public class AddressGetResponse
 {
     public string Street { get; set; }
     public string City { get; set; }

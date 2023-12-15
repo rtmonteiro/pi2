@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using dotnet.Application.Enums;
 
-namespace dotnet.Application.DTOs.Request.General;
+namespace dotnet.Application.DTOs.Request.DocumentRequest;
 
-public class DocumentCreateRequest
+public class DocumentGetResponse
 {
     public TypeDoc Type { get; set; }
     

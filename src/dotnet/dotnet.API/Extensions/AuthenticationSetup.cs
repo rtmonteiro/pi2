@@ -1,8 +1,11 @@
 using System.Text;
 using dotnet.Identity.Configurations;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dotnet.API.Extensions;
 
@@ -53,9 +56,11 @@ public static class AuthenticationSetup
 
         services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }).AddJwtBearer(options => { options.TokenValidationParameters = tokenValidationParameters; });
+        }).AddJwtBearer(options => { options.TokenValidationParameters = tokenValidationParameters; })
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
     }
 
     public static void AddAuthorizationPolicies(this IServiceCollection services)

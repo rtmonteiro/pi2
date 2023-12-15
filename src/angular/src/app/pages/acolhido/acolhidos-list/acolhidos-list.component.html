@@ -1,12 +1,8 @@
 <h3>Pesquisar</h3>
 <div class="filter">
-    <input [(ngModel)]="form.query" type="text" [attr.placeholder]="form.filtro" 
+    <input [(ngModel)]="form.query" type="text" placeholder="Nome" 
         name="acolhido-name" id="acolhido-name-input">
-    <select [(ngModel)]="form.filtro" name="acolhido-filtro" id="acolhido-filtro-select">
-        <option *ngFor="let filtro of acolhidoFiltro" 
-            [value]="filtro.value">{{filtro.name}}</option>
-    </select>
-    <button type="submit">🔎</button>   
+    <button (click)="searchAcolhido()">🔎</button>   
     <select [(ngModel)]="form.status" name="acolhido-status" id="acolhido-status-select">
         <option *ngFor="let status of acolhidoStatus" 
             [value]="status.value">{{status.name}}</option>
@@ -16,6 +12,6 @@
 <div class="list">
     <a *ngFor="let acolhido of (acolhidos$ | async)"
         [routerLink]="['/acolhido', acolhido.id]" class="item">
-        {{acolhido.nome}}
+        {{acolhido.name}}
     </a>
 </div>

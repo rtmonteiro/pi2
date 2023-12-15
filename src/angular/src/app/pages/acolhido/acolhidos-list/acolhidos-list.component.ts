@@ -15,14 +15,13 @@ export class AcolhidosListComponent implements OnInit {
     {value: 'documento', name: 'Documento'},
   ];
   acolhidoStatus = [
-    {value: 'todos', name: 'Todos'},
-    {value: 'ativo', name: 'Ativo'},
-    {value: 'inativo', name: 'Inativo'},
+    {value: undefined, name: 'Todos'},
+    {value: false, name: 'Ativo'},
+    {value: true, name: 'Inativo'},
   ];
 
   form = {
     query: '',
-    filtro: this.acolhidoFiltro[0].value,
     status: this.acolhidoStatus[0].value,
   };
 
@@ -33,9 +32,12 @@ export class AcolhidosListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.acolhidos$ = this.acolhidosService.getAcolhidos({});
+  }
+
+  searchAcolhido() {
     this.acolhidos$ = this.acolhidosService.getAcolhidos({
-      query: this.form.query,
-      filtro: this.form.filtro,
+      name: this.form.query,
       status: this.form.status,
     });
   }

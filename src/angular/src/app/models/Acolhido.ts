@@ -2,7 +2,7 @@ import { IHistorico } from "./Historico";
 
 export interface IAcolhidoItem {
     id: number;
-    nome: string;
+    name: string;
 }
 
 export interface IAcolhido {

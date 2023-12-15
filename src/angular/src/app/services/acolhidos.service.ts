@@ -6,9 +6,8 @@ import { IAcolhido, IAcolhidoItem } from '../models/Acolhido';
 import { EHistoricoType, IHistorico } from '../models/Historico';
 
 interface IAcolhidosFilter {
-  query: string;
-  status: string;
-  filtro: string;
+  status?: boolean;
+  name?: string;
 }
 
 interface IHistoricoFilter {
@@ -29,7 +28,7 @@ export class AcolhidosService {
 
   getHistorico(id: string, filtro: IHistoricoFilter): Observable<IHistorico[]> {
 
-    const url = new URL(this.baseURL + '/acolhidos/' + id + '/historicos');
+    const url = new URL(this.baseURL + '/Assisted/' + id + '/historicos');
 
     const params = new URLSearchParams();
     params.append('tipo', filtro.tipo?.toString() || EHistoricoType.Todos);
@@ -136,32 +135,12 @@ export class AcolhidosService {
   getAcolhidos(filter: IAcolhidosFilter): Observable<IAcolhidoItem[]> {
     const params = new URLSearchParams();
 
-    params.append('query', filter.query);
-    params.append('status', filter.status);
-    params.append('filtro', filter.filtro);
+    if (filter.name) params.append('Name', filter.name);
+    if (filter.status) params.append('Status', filter.status.valueOf().toString());
 
-    const url = new URL(this.baseURL + '/acolhidos');
+    const url = new URL(this.baseURL + '/Assisted');
     url.search = params.toString();
 
-    // return this.http.get<IAcolhidoItem[]>(url.toString(), {
-    //   headers: {
-    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //   }
-    // });
-
-    return of([
-      {
-        id: 1,
-        nome: 'João Nascimento',
-      },
-      {
-        id: 2,
-        nome: 'Ciclano',
-      },
-      {
-        id: 3,
-        nome: 'Beltrano',
-      },
-    ]);
+    return this.http.get<IAcolhidoItem[]>(url.toString());
   }
 }

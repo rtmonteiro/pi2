@@ -4,8 +4,12 @@
     <input type="text" formControlName="razao" id="razao">
   </div>
   <div>
-    <label for="ehDesistencia">ehDesistencia</label>
-    <input type="text" formControlName="ehDesistencia" id="ehDesistencia">
+    <fieldset>
+      <label for="ehDesistencia">Desistência</label>
+      <input type="radio" formControlName="ehDesistencia" id="ehDesistencia" name="ehDesistencia" [value]="true">
+      <label for="ehDesistencia">Desligamento</label>
+      <input type="radio" formControlName="ehDesistencia" id="desligamento" name="ehDesistencia" [value]="false">
+    </fieldset>
   </div>
   <div>
     <label for="pessoaInformada">pessoaInformada</label>

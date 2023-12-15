@@ -31,7 +31,7 @@ export class AcolhidosService {
     const url = new URL(this.baseURL + '/Assisted/' + id + '/historicos');
 
     const params = new URLSearchParams();
-    params.append('tipo', filtro.tipo?.toString() || EHistoricoType.Todos);
+    params.append('tipo', filtro.tipo?.toString() || EHistoricoType.Todos.toString());
     if (filtro.dataInicio) params.append('data-inicio', filtro.dataInicio.toISOString() );
 
     url.search = params.toString();
@@ -55,7 +55,7 @@ export class AcolhidosService {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }
-    });    
+    });
   }
 
   deleteHistorico(id: number): Observable<number> {

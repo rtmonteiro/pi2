@@ -11,7 +11,7 @@ import { AcolhidosService } from 'src/app/services/acolhidos.service';
   styleUrls: ['./acolhido.component.scss']
 })
 export class AcolhidoComponent implements OnInit {
-  
+
   id: string = this.route.snapshot.paramMap.get('id') || '';
 
   acolhido$?: Observable<IAcolhido>;
@@ -20,7 +20,7 @@ export class AcolhidoComponent implements OnInit {
     { value: EHistoricoType.Entrada, name: 'Entrada' },
     { value: EHistoricoType.Saida, name: 'Saída' },
     { value: EHistoricoType.Saude, name: 'Saúde' },
-    { value: EHistoricoType.Medicacao, name: 'Medicação' },
+    { value: EHistoricoType.Medico, name: 'Medicação' },
   ];
   historicoType = EHistoricoType;
 
@@ -41,7 +41,7 @@ export class AcolhidoComponent implements OnInit {
   }
 
   updateHistoricosList(tipo?: string, dataInicio?: Date) {
-    const tipoFilter = tipo as EHistoricoType || EHistoricoType.Todos;
+    const tipoFilter = tipo as unknown as EHistoricoType || EHistoricoType.Todos;
 
     this.historicos$ = this.acolhidosService.getHistorico(this.id, {
       tipo: tipoFilter,

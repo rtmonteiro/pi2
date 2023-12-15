@@ -11,7 +11,7 @@
     <div class="info">
         <div class="filter">
             <select #historicoInput name="acolhido-filtro" id="acolhido-filtro-select">
-                <option *ngFor="let filtro of historicoFiltro" 
+                <option *ngFor="let filtro of historicoFiltro"
                     [value]="filtro.value">{{filtro.name}}</option>
             </select>
             <input type="date" name="acolhido-filtro-data" id="acolhido-filtro-data-input">
@@ -20,13 +20,13 @@
         <a [routerLink]="['/info']">Adicionar Info</a>
     </div>
     <div class="list">
-        <div [routerLink]="['historico', historico.id]" 
+        <div [routerLink]="['historico', historico.id]"
             *ngFor="let historico of (historicos$ | async)" class="item">
             <div class="start">
                 <div class="icon" [ngSwitch]="historico.tipo">
                     <i *ngSwitchCase="historicoType.Entrada">🏠</i>
                     <i *ngSwitchCase="historicoType.Saida">🚪</i>
-                    <i *ngSwitchCase="historicoType.Medicacao">💊</i>
+                    <i *ngSwitchCase="historicoType.Medico">💊</i>
                     <i *ngSwitchCase="historicoType.Saude">🏥</i>
                 </div>
                 <p>
@@ -42,7 +42,7 @@
             </ng-container>
             <ng-container *ngIf="historico.tipo == historicoType.Saida">
             </ng-container>
-            <ng-container *ngIf="historico.tipo == historicoType.Medicacao">
+            <ng-container *ngIf="historico.tipo == historicoType.Medico">
             </ng-container>
             <ng-container *ngIf="historico.tipo == historicoType.Saude">
             </ng-container>

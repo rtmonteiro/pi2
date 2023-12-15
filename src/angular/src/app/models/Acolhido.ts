@@ -1,4 +1,4 @@
-import { IHistorico } from "./Historico";
+import { IAcolhidoApi, IDocumentoApi, IEnderecoApi } from "./API";
 
 export interface IAcolhidoItem {
     id: number;
@@ -59,4 +59,44 @@ interface IResponsavel {
     rg: string;
     dataNascimento: Date;
     observacoes: string;
+}
+
+
+export function mapAcolhidoToAcolhidoApi(acolhido: any): IAcolhidoApi {
+  const acolhidoApi: IAcolhidoApi = {
+      id: acolhido.id,
+      name: acolhido.nome,
+      mother: acolhido.mae,
+      father: acolhido.pai,
+      birthDate: acolhido.dataNascimento, // Convert Date to string
+      gender: acolhido.sexo === 'M' ? 0 : 1, // Assuming 'M' is mapped to 0 and 'F' to 1
+      nationality: acolhido.naturalidade,
+      address: mapEnderecoToEnderecoApi(acolhido.endereco),
+      documents: !!acolhido.documentos ? acolhido.documentos.map(mapDocumentoToDocumentoApi) : []
+  };
+
+  return acolhidoApi;
+}
+
+function mapEnderecoToEnderecoApi(endereco: IEndereco): IEnderecoApi {
+  const enderecoApi: IEnderecoApi = {
+      street: endereco.logradouro,
+      city: endereco.cidade,
+      state: endereco.uf,
+      cep: endereco.cep,
+      country: '' // Assuming a default country for the address
+  };
+
+  return enderecoApi;
+}
+
+function mapDocumentoToDocumentoApi(documento: IDocumento): IDocumentoApi {
+  const documentoApi: IDocumentoApi = {
+      type: 1, // Assuming a default type for the document
+      value: documento.numero,
+      name: documento.tipo,
+      isDeleted: false // Assuming the document is not deleted by default
+  };
+
+  return documentoApi;
 }

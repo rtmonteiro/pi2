@@ -33,7 +33,6 @@ import { EntradaFormComponent } from './acolhido-create/form-wrapper/entrada-for
     FormDebugModule
   ],
   exports: [
-    BaseFormComponent,
   ]
 })
 export class AcolhidoModule { }

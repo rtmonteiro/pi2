@@ -16,9 +16,13 @@
         <input type="date" formControlName="dataNascimento" id="dataNascimento">
     </div>
     <div>
-        <label for="sexo">sexo</label>
-        <input type="radio" formControlName="sexo" id="sexo" name="sexo" [value]="'M'" checked>
-        <input type="radio" formControlName="sexo" id="sexo" name="sexo" [value]="'F'">
+        <fieldset>
+          <legend>sexo</legend>
+          <label for="masculino">Masculino</label>
+          <input type="radio" formControlName="sexo" id="masculino" name="sexo" [value]="'M'" checked>
+          <label for="feminino">Feminino</label>
+          <input type="radio" formControlName="sexo" id="feminino" name="sexo" [value]="'F'">
+        </fieldset>
       </div>
     <div>
         <label for="naturalidade">naturalidade</label>

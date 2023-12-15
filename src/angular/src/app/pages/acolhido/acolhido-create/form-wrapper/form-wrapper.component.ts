@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, map, startWith, tap } from 'rxjs';
-import { AcolhidoFormService, FormType } from 'src/app/services/acolhido-form.service';
 import { ISelectOption } from './form-selector/form-selector.component';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AcolhidoFormService, FormType } from 'src/app/services/acolhido-form.service';
 
 @Component({
   selector: 'app-form-wrapper',

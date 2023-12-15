@@ -2,21 +2,22 @@
     <div formArrayName="formArray">
       <div *ngFor="let control of formArray.controls; let i = index">
         <label for="">{{getFormName(i)}}</label>
-        <ng-container *ngIf="getFormName(i) === 'hiv'; else text">
-          <fieldset>
-            <legend>Possui HIV?</legend>
-            <input [formControlName]="i.toString()" type="radio" id="hiv-positivo" value="1"/>
-            <label for="">Sim</label>
-            <input [formControlName]="i.toString()" type="radio" id="hiv-negativo" value="2" checked/>
-            <label for="">Não</label>
-          </fieldset>
-        </ng-container>
-        <ng-template #text>
-          <input [formControlName]="i" type="text"/>
-        </ng-template>
+        <div [formGroupName]="i">
+          <ng-container *ngIf="getFormName(i) === 'hiv'; else text">
+            <input name="" type="checkbox" formControlName="hiv">Possui HIV?
+          </ng-container>
+          <ng-template #text>
+            <input [formControlName]="getFormName(i)" type="text"/>
+          </ng-template>
+        </div>
         <button (click)="removeForm(i)">Delete form</button>
       </div>
     </div>
 </form>
-{{form.value | json}}
+
 <app-form-selector [options]="options" (selected)="formSelectorHandler($event)"></app-form-selector>
+
+
+
+{{form.value | json}}
+{{hasHivForm | json}}

@@ -1,0 +1,40 @@
+@use '/src/assets/styles/variables.scss' as var;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h2 {
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        input {
+            padding: 10px;
+        };
+
+        button {
+            padding: 10px;
+            background-color: var.$primary-color;
+            border-radius: 5px;
+            border: none;
+            color: var.$white-color;
+            font-weight: bold;
+        }
+    }
+}

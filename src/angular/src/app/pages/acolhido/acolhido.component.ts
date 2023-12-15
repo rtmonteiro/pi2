@@ -49,8 +49,11 @@ export class AcolhidoComponent implements OnInit {
     });
   }
 
-  deleteHistorico(id: string) {
-    this.acolhidosService.deleteHistorico(id);
+  deleteHistorico(id: number) {
+    this.acolhidosService.deleteHistorico(id)
+      .subscribe(() => {
+        this.updateHistoricosList();
+      });
   }
 
 }

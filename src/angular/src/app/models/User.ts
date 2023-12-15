@@ -14,6 +14,6 @@ export interface IUserModel {
 
 export class UserResponse {
   constructor(
-    public token: string
+    public accessToken: string
   ) {}
 }

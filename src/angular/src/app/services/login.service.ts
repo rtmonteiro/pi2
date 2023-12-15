@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User, UserResponse } from '../models/User';
 
@@ -16,10 +16,9 @@ export class LoginService {
   ) { }
 
   login(user: User): Observable<UserResponse> {
-    const headers = new HttpHeaders()
-
-    return this.http.post<UserResponse>(`${this.baseURL}/login`, user, {
-      headers
-    })
+    return this.http.post<UserResponse>(`${this.baseURL}/login`, user)
+      .pipe(tap((res: UserResponse) => {
+        localStorage.setItem('accessToken', res.accessToken)
+      }))
   }
 }

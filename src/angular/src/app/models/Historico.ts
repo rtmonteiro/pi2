@@ -1,5 +1,5 @@
 export interface IHistorico {
-    id: string;
+    id: number;
     data: Date;
     tipo: `${EHistoricoType}`;
     descricao: string;

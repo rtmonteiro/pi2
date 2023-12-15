@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, timeInterval } from 'rxjs';
+import { Observable, map, of, timeInterval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IAcolhido, IAcolhidoItem } from '../models/Acolhido';
 import { EHistoricoType, IHistorico } from '../models/Historico';
@@ -36,31 +36,42 @@ export class AcolhidosService {
 
     url.search = params.toString();
 
-    return of([
-      {
-        id: '1',
-        tipo: 'entrada',
-        data: new Date('2021-01-01'),
-        descricao: 'Entrada',
-      },
-      {
-        id: '2',
-        tipo: 'saida',
-        data: new Date('2021-02-01'),
-        descricao: 'Saída',
-      }
-    ]);
+    // return of([
+    //   {
+    //     id: '1',
+    //     tipo: 'entrada',
+    //     data: new Date('2021-01-01'),
+    //     descricao: 'Entrada',
+    //   },
+    //   {
+    //     id: '2',
+    //     tipo: 'saida',
+    //     data: new Date('2021-02-01'),
+    //     descricao: 'Saída',
+    //   }
+    // ]);
 
-    return this.http.get<IHistorico[]>(url.toString());    
+    return this.http.get<IHistorico[]>(url.toString(), {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    });    
   }
 
-  deleteHistorico(id: string): string {
-    this.http.delete(this.baseURL + '/historicos/' + id);
-    return id;
+  deleteHistorico(id: number): Observable<number> {
+    return this.http.delete<number>(this.baseURL + '/historicos/' + id, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).pipe(map(res => id));
   }
 
   getAcolhido(id: string): Observable<IAcolhido> {
-    // return this.http.get<IAcolhido>(this.baseURL + '/acolhidos/' + id);
+    // return this.http.get<IAcolhido>(this.baseURL + '/acolhidos/' + id, {
+    //   headers: {
+    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //   }
+    // });
     let res: IAcolhido = {
       id: 1,
       nome: 'João Nascimento',
@@ -126,7 +137,11 @@ export class AcolhidosService {
     const url = new URL(this.baseURL + '/acolhidos');
     url.search = params.toString();
 
-    // return this.http.get<IAcolhidoItem[]>(url.toString());
+    return this.http.get<IAcolhidoItem[]>(url.toString(), {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    });
 
     return of([
       {

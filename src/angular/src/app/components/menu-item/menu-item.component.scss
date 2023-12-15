@@ -1,0 +1,15 @@
+@use '/src/assets/styles/variables.scss' as var;
+
+.menu-item {
+    width: 250px;
+    height: 250px;
+    background-color: var.$primary-color;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var.$white-color;
+    font-weight: bold;
+    font-size: 1.5rem;
+}

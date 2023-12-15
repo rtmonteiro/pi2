@@ -10,17 +10,17 @@ export class MenuComponent implements OnInit {
 
   menuList: MenuItem[] = [
     {
-      route: "/acolhidos",
-      name: "Acolhidos"
+      route: "/acolhido/novo",
+      name: "Adicionar Acolhido"
+    },
+    {
+      route: "/acolhido",
+      name: "Listar Acolhidos"
     },
     {
       route: "/usuarios",
       name: "Lista Usuários"
     },
-    {
-      route: "/acolhido/novo",
-      name: "Adicionar Acolhido"
-    }
   ]
 
   constructor() { }

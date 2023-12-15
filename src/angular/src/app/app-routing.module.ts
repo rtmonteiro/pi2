@@ -4,8 +4,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { AcolhidosListComponent } from './pages/acolhido/acolhidos-list/acolhidos-list.component';
 import { AcolhidoCreateComponent } from './pages/acolhido/acolhido-create/acolhido-create.component';
 import { MenuComponent } from './pages/menu/menu.component';
-import { UsuarioComponent } from './pages/usuario/usuario.component'
-import { UsuariosComponent } from './pages/usuarios/usuarios.component'
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { AcolhidoComponent } from './pages/acolhido/acolhido.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'acolhido/novo',
     component: AcolhidoCreateComponent
+  },
+  {
+    path: "acolhido/:id",
+    component: AcolhidoComponent
   },
   {
     path: "menu",

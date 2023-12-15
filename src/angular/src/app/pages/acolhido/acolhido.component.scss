@@ -1,0 +1,85 @@
+@use '/src/assets/styles/variables' as var;
+
+.acolhido {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        .avatar img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-bottom: 20px;
+        }
+    }
+    .info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        select {
+            padding: 6px 10px;
+            border-radius: 4px 0 0 4px;
+            background-color: #eee;
+            border: #ccc 1px solid;
+        }
+        input {
+            padding: 6px 10px;
+            border-radius: 0;
+            background-color: #eee;
+            border: #ccc 1px solid;
+            border-left: none;
+        }
+        button {
+            width: auto;
+            height: 31.3px;
+            border-radius: 0 4px 4px 0;
+            color: #eee;
+            background-color: var.$primary-color;
+            border: #ccc 1px solid;
+        }
+        a {
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 40px;
+            font-weight: bold;
+            color: #eee;
+            background-color: var.$primary-color;
+            border: #ccc 1px solid;
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #eee;
+            padding: 10px;
+
+            .start {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .action {
+                display: flex;
+                gap: 10px;
+                button {
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

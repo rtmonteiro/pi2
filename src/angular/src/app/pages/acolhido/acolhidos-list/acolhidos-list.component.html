@@ -1,10 +1,19 @@
 <div>
     <h3>Pesquisar</h3>
     <input type="text" name="acolhido-name" id="acolhido-name-input">
-    <select name="acolhido-filtro" id="acolhido-filtro-select"></select>
+    <select name="acolhido-filtro" id="acolhido-filtro-select">
+        <option *ngFor="let filtro of acolhidoFiltro" 
+            [value]="filtro.value">{{filtro.name}}</option>
+    </select>
     <button type="submit">pintinho</button>
+    <select name="acolhido-status" id="acolhido-status-select">
+        <option *ngFor="let status of acolhidoStatus" 
+            [value]="status.value">{{status.name}}</option>
+    </select>
 </div>
 
-<div>
-    <select name="acolhido-status" id="acolhido-status-select"></select>
+<div class="list">
+    <div *ngFor="let acolhido of (acolhidos$ | async)" class="item">
+        <a [routerLink]="['/acolhido', acolhido.id]">{{acolhido.nome}}</a>
+    </div>
 </div>

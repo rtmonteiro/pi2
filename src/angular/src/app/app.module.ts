@@ -8,7 +8,6 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { UsuariosModule } from './pages/usuarios/usuarios.module';
 import { AcolhidoModule } from './pages/acolhido/acolhido.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +19,7 @@ import { AcolhidoModule } from './pages/acolhido/acolhido.module';
     AppRoutingModule,
     LoginModule,
     UsuariosModule,
-    AcolhidoModule,
+    AcolhidoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

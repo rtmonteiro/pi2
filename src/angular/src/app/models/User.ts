@@ -10,7 +10,10 @@ export interface IUserModel {
   email: string,
   password: string,
   name: string,
+  passwordConfimation: string,
 }
+
+export type IUserCreate = Omit<IUserModel, 'id' | 'name'>
 
 export class UserResponse {
   constructor(

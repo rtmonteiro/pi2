@@ -22,7 +22,9 @@ export class UsuariosComponent implements OnInit {
   }
 
   deleteUser($event: string) {
-    this.usuariosService.deleteUser($event).subscribe();
+    this.usuariosService.deleteUser($event).subscribe(
+      () => this.users$ = this.usuariosService.getUsers()
+    );
   }
 
 }

@@ -5,7 +5,7 @@ import { AcolhidosListComponent } from './acolhidos-list/acolhidos-list.componen
 import { AcolhidoCreateComponent } from './acolhido-create/acolhido-create.component';
 import { FormFooterComponent } from './acolhido-create/form-footer/form-footer.component';
 import { BaseFormComponent } from './acolhido-create/form-wrapper/base-form/base-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormDebugModule } from 'src/app/form-debug/form-debug.module';
 import { FormWrapperComponent } from './acolhido-create/form-wrapper/form-wrapper.component';
 import { MedicoFormComponent } from './acolhido-create/form-wrapper/medico-form/medico-form.component';
@@ -27,6 +27,7 @@ import { AcolhidoComponent } from './acolhido.component';
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     FormDebugModule
   ],
   exports: [

@@ -10,14 +10,21 @@ import { AcolhidosService } from 'src/app/services/acolhidos.service';
 })
 export class AcolhidosListComponent implements OnInit {
 
-  acolhidoStatus = [
-    {value: 'ativo', name: 'Ativo'},
-    {value: 'inativo', name: 'Inativo'},
-  ];
   acolhidoFiltro = [
+    {value: 'nome', name: 'Nome'},
+    {value: 'documento', name: 'Documento'},
+  ];
+  acolhidoStatus = [
+    {value: 'todos', name: 'Todos'},
     {value: 'ativo', name: 'Ativo'},
     {value: 'inativo', name: 'Inativo'},
   ];
+
+  form = {
+    filtro: this.acolhidoFiltro[0].value,
+    status: this.acolhidoStatus[0].value,
+  };
+
   acolhidos$!: Observable<IAcolhidoItem[]>;
 
   constructor(
@@ -26,8 +33,8 @@ export class AcolhidosListComponent implements OnInit {
 
   ngOnInit(): void {
     this.acolhidos$ = this.acolhidosService.getAcolhidos({
-      filtro: 'ativo',
-      status: 'ativo',
+      filtro: this.form.filtro,
+      status: this.form.status,
     });
   }
 

@@ -1,19 +1,20 @@
-<div>
-    <h3>Pesquisar</h3>
-    <input type="text" name="acolhido-name" id="acolhido-name-input">
-    <select name="acolhido-filtro" id="acolhido-filtro-select">
+<h3>Pesquisar</h3>
+<div class="filter">
+    <input type="text" [attr.placeholder]="form.filtro" name="acolhido-name" id="acolhido-name-input">
+    <select [(ngModel)]="form.filtro" name="acolhido-filtro" id="acolhido-filtro-select">
         <option *ngFor="let filtro of acolhidoFiltro" 
             [value]="filtro.value">{{filtro.name}}</option>
     </select>
-    <button type="submit">pintinho</button>
-    <select name="acolhido-status" id="acolhido-status-select">
+    <button type="submit">🔎</button>   
+    <select [(ngModel)]="form.status" name="acolhido-status" id="acolhido-status-select">
         <option *ngFor="let status of acolhidoStatus" 
             [value]="status.value">{{status.name}}</option>
     </select>
 </div>
 
 <div class="list">
-    <div *ngFor="let acolhido of (acolhidos$ | async)" class="item">
-        <a [routerLink]="['/acolhido', acolhido.id]">{{acolhido.nome}}</a>
-    </div>
+    <a *ngFor="let acolhido of (acolhidos$ | async)"
+        [routerLink]="['/acolhido', acolhido.id]" class="item">
+        {{acolhido.nome}}
+    </a>
 </div>

@@ -137,11 +137,11 @@ export class AcolhidosService {
     const url = new URL(this.baseURL + '/acolhidos');
     url.search = params.toString();
 
-    return this.http.get<IAcolhidoItem[]>(url.toString(), {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    });
+    // return this.http.get<IAcolhidoItem[]>(url.toString(), {
+    //   headers: {
+    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //   }
+    // });
 
     return of([
       {

@@ -1,0 +1,46 @@
+@use '/src/assets/styles/variables' as var;
+
+.filter {
+    input, select, button {
+        height: 33px;
+        background-color: var.$bg-color;
+        border: 1px solid var.$border-color;
+        border-radius: 5px;
+    }
+    button {
+        background-color: var.$primary-color;
+        color: var.$white-color;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+    #acolhido-filtro-select {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    input {
+        padding: 10px;
+        border-radius: 5px 0 0 5px;
+    }
+    select {
+        cursor: pointer;
+        padding: 0 5px;
+    }
+    #acolhido-status-select {
+        margin-left: 20px;
+    }
+    margin: 20px 0 40px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .item {
+        padding: 15px;
+        color: var.$text-color;
+        background-color: var.$bg-color;
+        border: 1px solid var.$border-color;
+        border-radius: 5px;
+    }
+}

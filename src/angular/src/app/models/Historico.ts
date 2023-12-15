@@ -7,10 +7,20 @@ export interface IHistorico {
 
 export interface IEntradaInfo extends IHistorico {
     tipo: EHistoricoType.Entrada;
+    celular: string;
+    escolaridade: string;
+    profissao: string;
+    beneficio: string;
+    motivoProcura: string;
+    nomeResponsavel: string;
+    celularResponsavel: string;
 }
 
 export interface ISaidaInfo extends IHistorico {
     tipo: EHistoricoType.Saida;
+    razao: string;
+    ehDesistencia: string;
+    pessoaInformada: string;
 }
 
 export interface ISaudeInfo extends IHistorico {

@@ -1,3 +1,41 @@
-<app-base-form></app-base-form>
+<div *ngIf="(options$ | async) as options">
+  <div *ngIf="(formArray$ | async) as formArray">
+    <div *ngFor="let form of formArray.controls">
+      <button (click)="showForm(getFormName(form.value))">{{getFormName(form.value)}}</button>
+    </div>
+  </div>
+  <app-form-selector [options]="options" (selected)="formSelectorHandler($event)"></app-form-selector>
+</div>
 
-<app-medico-form></app-medico-form>
+<div [ngSwitch]="formOnDisplay">
+  <div *ngSwitchCase="'base'">
+    <app-base-form></app-base-form>
+  </div>
+  <div *ngSwitchCase="'entrada'">
+    <app-entrada-form></app-entrada-form>
+  </div>
+  <div *ngSwitchCase="'saida'">
+    <app-saida-form></app-saida-form>
+  </div>
+  <div *ngSwitchDefault>Cadastro acolhido</div>
+  <!-- <div *ngSwitchCase="'medico'">
+    <app-medico-form></app-medico-form>
+  </div> -->
+</div>
+
+<br>
+<br>
+
+<button (click)="cancel()">Cancelar</button>
+
+<button (click)="save()">Salvar</button>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="(formArray$ | async) as formArray">
+  {{formArray.value | json}}
+</div>

@@ -11,14 +11,21 @@ export class MedicoFormComponent implements OnInit {
 
   // data: InfoMedico;
   form: FormGroup;
-  hasHivForm: boolean;
   options: ISelectOption[];
-  optionsFiltered: ISelectOption[];
   formOptions: OptionToFormMapper = {
     'hiv': this.addHivForm.bind(this),
     'cirurgia': this.addCirurgiaForm.bind(this),
-    'outro': this.addOutroForm.bind(this)
+    'diabetes': this.addDiabetesForm.bind(this),
+    'hipertensao': this.addHipertensaoForm.bind(this),
+    'alergia': this.addAlergiaForm.bind(this),
+    'disturbiomental': this.addDisturbioMentalForm.bind(this),
+    'outro': this.addOutroForm.bind(this),
   };
+  singleOptions = [
+    'hiv',
+    'diabetes',
+    'hipertensao',
+  ]
 
   constructor(
     private formBuilder: FormBuilder
@@ -27,15 +34,10 @@ export class MedicoFormComponent implements OnInit {
       formArray: this.formBuilder.array([])
     });
     this.options = [];
-    this.optionsFiltered = [];
-    this.hasHivForm = false;
   }
 
   ngOnInit(): void {
     this.options = Object.keys(this.formOptions).map(option =>
-      <ISelectOption>{name: option, value: option}
-    );
-    this.optionsFiltered = Object.keys(this.formOptions).map(option =>
       <ISelectOption>{name: option, value: option}
     );
     this.options.unshift(<ISelectOption>{name: '', value: ''});
@@ -52,10 +54,9 @@ export class MedicoFormComponent implements OnInit {
   formSelectorHandler(option: string | number): void {
     if (Object.keys(this.formOptions).includes(option as string)){
       let formToAdd = null;
-      // if(option === 'hiv' && !this.hasHivForm){
-      //   this.hasHivForm = true;
-      //   this.optionsFiltered.
-      // }
+      if(this.singleOptions.includes(option as string)){
+        this.options = this.options.filter(o => o.name !== option);
+      }
       formToAdd = this.formOptions[option]();
 
       if(!!formToAdd){
@@ -66,26 +67,46 @@ export class MedicoFormComponent implements OnInit {
 
   removeForm(index: number) {
     let name = this.getFormName(index);
-    if(name === 'hiv'){
-      this.hasHivForm = false;
+    if(this.singleOptions.includes(name) && !this.options.some(o => o.value === name)){
+      this.options.unshift(<ISelectOption>{name: name, value: name});
     }
     this.formArray.removeAt(index);
   }
 
-  addHivForm(): FormGroup | null {
-    if(!this.hasHivForm){
-      this.hasHivForm = true;
+  addHivForm(): FormGroup {
       return this.formBuilder.group({
         hiv: [false]
       });
-    }
-    return null;
   }
 
   addCirurgiaForm(): FormGroup {
     return this.formBuilder.group({
       cirurgia: ['']
     });
+  }
+
+  addDiabetesForm(): FormGroup {
+    return this.formBuilder.group({
+      diabetes: [false]
+    })
+  }
+
+  addHipertensaoForm(): FormGroup {
+    return this.formBuilder.group({
+      hipertensao: [false]
+    })
+  }
+
+  addAlergiaForm(): FormGroup {
+    return this.formBuilder.group({
+      alergia: [false]
+    })
+  }
+
+  addDisturbioMentalForm(): FormGroup {
+    return this.formBuilder.group({
+      disturbioMental: [false]
+    })
   }
 
   addOutroForm(): FormGroup {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormFooterComponent } from './form-footer/form-footer.component';
 import { BaseFormComponent } from './form-wrapper/base-form/base-form.component';
 
 @Component({
@@ -9,8 +8,8 @@ import { BaseFormComponent } from './form-wrapper/base-form/base-form.component'
 })
 export class AcolhidoCreateComponent implements OnInit {
 
-  
-  
+
+
 
   constructor() { }
 

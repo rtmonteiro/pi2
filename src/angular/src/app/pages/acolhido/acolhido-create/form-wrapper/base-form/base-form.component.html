@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onPartialSubmit()">
     <div>
         <label for="nome">nome</label>
         <input type="text" formControlName="nome" id="nome">
@@ -13,16 +13,50 @@
     </div>
     <div>
         <label for="dataNascimento">dataNascimento</label>
-        <input type="text" formControlName="dataNascimento" id="dataNascimento">
+        <input type="date" formControlName="dataNascimento" id="dataNascimento">
     </div>
     <div>
         <label for="sexo">sexo</label>
-        <input type="text" formControlName="sexo" id="sexo">
-    </div>
+        <input type="radio" formControlName="sexo" id="sexo" name="sexo" [value]="'M'" checked>
+        <input type="radio" formControlName="sexo" id="sexo" name="sexo" [value]="'F'">
+      </div>
     <div>
         <label for="naturalidade">naturalidade</label>
         <input type="text" formControlName="naturalidade" id="naturalidade">
     </div>
+    <div formGroupName="endereco">
+      <div>
+        <label for="cep">cep</label>
+        <input type="text" formControlName="cep" id="cep">
+      </div>
+      <div>
+        <label for="logradouro">logradouro</label>
+        <input type="text" formControlName="logradouro" id="logradouro">
+      </div>
+      <div>
+        <label for="numero">numero</label>
+        <input type="text" formControlName="numero" id="numero">
+      </div>
+      <div>
+        <label for="bairro">bairro</label>
+        <input type="text" formControlName="bairro" id="bairro">
+      </div>
+      <div>
+        <label for="cidade">cidade</label>
+        <input type="text" formControlName="cidade" id="cidade">
+      </div>
+      <div>
+        <label for="uf">uf</label>
+        <input type="text" formControlName="uf" id="uf">
+      </div>
+      <div>
+        <label for="complemento">complemento</label>
+        <input type="text" formControlName="complemento" id="complemento">
+      </div>
+    </div>
+
+    <button type="submit">Anexar trecho</button>
 </form>
 
-<app-form-debug [form]="form"></app-form-debug>
+<button (click)="removePartialForm()">Remover trecho</button>
+

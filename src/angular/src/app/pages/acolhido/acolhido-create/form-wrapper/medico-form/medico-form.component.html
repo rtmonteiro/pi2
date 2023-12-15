@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+    <div formArrayName="formArray">
+      <div *ngFor="let control of formArray.controls; let i = index">
+        <label for="">{{getFormName(i)}}</label>
+        <div [formGroupName]="i">
+          <ng-container *ngIf="getFormName(i) === 'hiv'; else text">
+            <input name="" type="checkbox" formControlName="hiv">Possui HIV?
+          </ng-container>
+          <ng-template #text>
+            <input [formControlName]="getFormName(i)" type="text"/>
+          </ng-template>
+        </div>
+        <button (click)="removeForm(i)">Delete form</button>
+      </div>
+    </div>
+</form>
+
+<app-form-selector [options]="options" (selected)="formSelectorHandler($event)"></app-form-selector>
+
+
+
+{{form.value | json}}
+{{hasHivForm | json}}

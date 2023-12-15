@@ -15,4 +15,8 @@ export class UsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cancel(): void {
+
+  }
+
 }

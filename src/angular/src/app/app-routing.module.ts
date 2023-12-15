@@ -11,15 +11,20 @@ import { AcolhidoComponent } from './pages/acolhido/acolhido.component';
 const routes: Routes = [
   {
     path: 'acolhido',
-    component: AcolhidosListComponent
-  },
-  {
-    path: 'acolhido/novo',
-    component: AcolhidoCreateComponent
-  },
-  {
-    path: "acolhido/:id",
-    component: AcolhidoComponent
+    children: [
+      {
+        path: '',
+        component: AcolhidosListComponent
+      },
+      {
+        path: 'novo',
+        component: AcolhidoCreateComponent
+      },
+      {
+        path: ":id",
+        component: AcolhidoComponent
+      },
+    ]
   },
   {
     path: "menu",

@@ -16,6 +16,10 @@ export class MenuComponent implements OnInit {
     {
       route: "/usuarios",
       name: "Lista Usuários"
+    },
+    {
+      route: "/acolhido/novo",
+      name: "Adicionar Acolhido"
     }
   ]
 

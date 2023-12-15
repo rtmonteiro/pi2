@@ -28,6 +28,14 @@ public class AssistedService(CAContext context) : Service<Assisted>(context)
         return await query.ToListAsync();
     }
 
+    public async Task<Assisted> Create(Assisted a)
+    {
+        var assisted = await context.Assisteds.AddAsync(a);
+        await context.SaveChangesAsync();
+
+        return assisted.Entity;
+    }
+
     public override async Task<Assisted?> GetAsync(long id)
     {
         return await context.Assisteds.Include(a =>a.Address).Include(a=>a.Documents)

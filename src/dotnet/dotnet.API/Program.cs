@@ -19,6 +19,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<DataBaseSettings>(
     builder.Configuration.GetSection("ClinicaDatabaseSettings"));
 
+builder.Services.AddAuthentication(builder.Configuration);
+builder.Services.AddAuthorizationPolicies();
+
 builder.Services.Configure<JwtOptions>(
     builder.Configuration.GetSection("JwtOptions"));
 builder.Services.AddHttpContextAccessor();
@@ -42,7 +45,7 @@ builder.Services.AddCors(opt =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddAuthentication(builder.Configuration);
+
 builder.Services.AddSwagger();
 builder.Services.AddScoped<IIdentityService, ClinicaIdentityService>();
 builder.Services.AddScoped<AssistedService>();
@@ -50,13 +53,6 @@ builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<HistoricService>();
 
 builder.Services.AddMapper();
-
-builder.Services.Configure<IISServerOptions>(options =>
-    {
-        options.AuthenticationDisplayName = null;
-        options.AutomaticAuthentication = false;
-        options.AllowSynchronousIO = true;
-    });
 
 var app = builder.Build();
 
@@ -69,15 +65,18 @@ if (app.Environment.IsDevelopment())
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-app.UseHttpsRedirection();
 
+app.UseAuthentication();
+app.UseRouting();
+app.UseCors("CA");
 app.UseAuthorization();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 app.MapControllers();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
-app.UseCors("CA");
 app.Run();

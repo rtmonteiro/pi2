@@ -14,6 +14,7 @@ public abstract class Service<T>(DbContext context)
     {
         await context.AddAsync(item!);
         await context.SaveChangesAsync();
+
     }
 
     public async Task UpdateAsync(T item)

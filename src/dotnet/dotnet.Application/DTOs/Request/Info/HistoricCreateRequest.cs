@@ -7,8 +7,6 @@ namespace dotnet.Application.DTOs.Request.Info;
 
 public class HistoricCreateRequest
 {
-
-    public DateTime RegisterDate { get; set; }
     
     public TypeInfo TypeInfo { get; set; }
     

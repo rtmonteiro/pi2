@@ -54,27 +54,25 @@ public class UserController(IIdentityService clinicaIdentityService) : Controlle
     }
 
     [HttpGet("current")]
-    [Authorize]
     public async Task<IActionResult> GetUser()
     {
         return Ok(await clinicaIdentityService.GetAsync(User));
     }
 
-    [HttpDelete("delete")]
-    [Authorize]
-    public async Task<IActionResult> DeleteUser()
+    [HttpDelete("delete/{id}")]
+    public async Task<IActionResult> DeleteUser([FromRoute]string id)
     {
-        var user = HttpContext.User;
-        if (!user.Claims.Any()) return BadRequest();
-        await clinicaIdentityService.RemoveAsync(HttpContext.User);
+        var user = await clinicaIdentityService.GetAsync(id);
+        if (user is null) return BadRequest();
+        await clinicaIdentityService.RemoveAsync(user);
         return NoContent();
     }
     
-    [HttpPost("Logout")]
-    [Authorize]
-    public async Task<IActionResult> LogoutUser()
+    [HttpPut]
+    public async Task<IActionResult> UpdateUser(UserRegisterRequest u)
     {
-        await clinicaIdentityService.LogoutUser();
+        var user = await clinicaIdentityService.GetAsyncEmail(u.Email);
+        await clinicaIdentityService.UpdateUser(user, u);
         return NoContent();
     }
     

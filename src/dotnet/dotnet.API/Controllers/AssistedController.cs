@@ -22,7 +22,6 @@ public class AssistedController(AssistedService assistedService,
     HistoricService historicService,IMapper mapper) : ControllerBase
 {
     [HttpPost]
-    [Authorize]
     public async Task<IActionResult> Create(AssistedCreateRequest userRegister)
     {
         var assisted = mapper.Map<Assisted>(userRegister);
@@ -32,18 +31,19 @@ public class AssistedController(AssistedService assistedService,
             if (parent is null) return NotFound();
             assisted.Parent = parent;
         }
-        await assistedService.CreateAsync(assisted);
+        assisted = await assistedService.Create(assisted);
         return Ok(assisted);
     }
 
     [HttpPost("AddInfo/{id}")]
     public async Task<IActionResult> AddInfo(long id,[FromBody]HistoricCreateRequest historicCreateRequest)
     {
-        historicCreateRequest.RegisterDate = DateTime.Now;
-        historicCreateRequest.InfoEntry = null;
+        
         var assisted = await assistedService.GetAsyncTracked(id);
         if (assisted is null) return NotFound();
-        assisted.Historics.Add(mapper.Map<Historic>(historicCreateRequest));
+        var historic = mapper.Map<Historic>(historicCreateRequest);
+        historic.RegisterDate = DateTime.Now;
+        assisted.Historics.Add(historic);
         await assistedService.UpdateAsync(assisted);
         return Ok(assisted);
     }

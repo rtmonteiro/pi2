@@ -16,6 +16,13 @@ public class ClinicaIdentityService(SignInManager<ApplicationUser> signInManager
 {
     private readonly JwtOptions _jwtOptions = jwtOptions.Value;
 
+    public async Task<IdentityResult> UpdateUser(ApplicationUser user ,UserRegisterRequest userLogin)
+    {
+        var token = await userManager.GeneratePasswordResetTokenAsync(user);
+        var result = await userManager.ResetPasswordAsync(user, token, userLogin.Password ?? throw new InvalidOperationException());
+        return result;
+    }
+
     public async Task<List<ApplicationUser>> GetAsync()
     {
         return await userManager.Users.ToListAsync();
@@ -25,10 +32,25 @@ public class ClinicaIdentityService(SignInManager<ApplicationUser> signInManager
     {
         return (await userManager.GetUserAsync(userId))!;
     }
+    
+    public async Task<ApplicationUser> GetAsyncEmail(string email)
+    {
+        return (await userManager.FindByEmailAsync(email))!;
+    }
+
+    public async Task<ApplicationUser?> GetAsync(string userId)
+    {
+        return await userManager.Users.FirstOrDefaultAsync(u=>u.Id == userId);
+    }
 
     public async Task RemoveAsync(ClaimsPrincipal userId)
     {
         var user = await GetAsync(userId);
+        await userManager.DeleteAsync(user);
+    }
+
+    public async Task RemoveAsync(ApplicationUser user)
+    {
         await userManager.DeleteAsync(user);
     }
 

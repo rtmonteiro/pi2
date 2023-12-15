@@ -12,15 +12,10 @@ export class UsuarioComponent implements OnInit {
     this.route.params.subscribe(({id}) => console.log(id));
   }
 
+  ngOnInit(): void {
+  }
+  
   cancel() {
     console.log('cancel');
   }
-
-  ngOnInit(): void {
-  }
-
-  cancel(): void {
-
-  }
-
 }

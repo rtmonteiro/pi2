@@ -8,6 +8,9 @@ export interface IAcolhidoItem {
 export interface IAcolhido {
     id: number;
     nome: string;
+    pai: string;
+    mae: string;
+    naturalidade: string;
     dataNascimento: Date;
     sexo: string;
     cpf: string;
@@ -31,6 +34,7 @@ interface IEndereco {
     bairro: string;
     cidade: string;
     uf: string;
+    complemento: string;
 }
 
 interface IContato {

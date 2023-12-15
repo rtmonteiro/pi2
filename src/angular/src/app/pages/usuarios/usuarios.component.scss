@@ -1,0 +1,21 @@
+@use 'src/assets/styles/variables.scss' as var;
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 60px;
+    margin-right: 60px;
+    .btn {
+        padding: 10px 12px;
+        background-color: var.$primary-color;
+        color: var.$white-color;
+        border-radius: 40px;
+    }
+}

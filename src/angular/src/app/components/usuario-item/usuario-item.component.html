@@ -1,7 +1,9 @@
 <div class="item">
-  <span>{{user.name}}</span>
-  <div class="action">
-    <a [routerLink]="user.id.toString()"><i>Lápis</i></a>
-    <i>Lixeira</i>
+  <div class="item__info">
+    <span>{{user.name}}</span>
+  </div>
+  <div class="item__actions">
+    <a [routerLink]="user.id"><i>✏️</i></a>
+    <button (click)="deleteUser(user.id)"><i>🗑️</i></button>
   </div>
 </div>

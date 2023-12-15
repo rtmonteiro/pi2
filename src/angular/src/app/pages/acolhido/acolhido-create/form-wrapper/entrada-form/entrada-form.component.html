@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="onPartialSubmit()">
+  <div>
+    <label for="celular">celular</label>
+    <input type="text" formControlName="celular" id="celular">
+  </div>
+  <div>
+    <label for="escolaridade">escolaridade</label>
+    <input type="text" formControlName="escolaridade" id="escolaridade">
+  </div>
+  <div>
+    <label for="profissao">profissao</label>
+    <input type="text" formControlName="profissao" id="profissao">
+  </div>
+  <div>
+    <label for="beneficio">beneficio</label>
+    <input type="text" formControlName="beneficio" id="beneficio">
+  </div>
+  <div>
+    <label for="motivoProcura">motivoProcura</label>
+    <input type="text" formControlName="motivoProcura" id="motivoProcura">
+  </div>
+  <div>
+    <label for="nomeResponsavel">nomeResponsavel</label>
+    <input type="text" formControlName="nomeResponsavel" id="nomeResponsavel">
+  </div>
+  <div>
+    <label for="celularResponsavel">celularResponsavel</label>
+    <input type="text" formControlName="celularResponsavel" id="celularResponsavel">
+  </div>
+  <button type="submit">Anexar trecho</button>
+</form>
+
+<button (click)="removePartialForm()">Remover trecho</button>

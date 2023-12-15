@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="onPartialSubmit()">
+  <div>
+    <label for="razao">razao</label>
+    <input type="text" formControlName="razao" id="razao">
+  </div>
+  <div>
+    <label for="ehDesistencia">ehDesistencia</label>
+    <input type="text" formControlName="ehDesistencia" id="ehDesistencia">
+  </div>
+  <div>
+    <label for="pessoaInformada">pessoaInformada</label>
+    <input type="text" formControlName="pessoaInformada" id="pessoaInformada">
+  </div>
+  <button type="submit">Anexar trecho</button>
+</form>
+
+<button (click)="removePartialForm()">Remover trecho</button>

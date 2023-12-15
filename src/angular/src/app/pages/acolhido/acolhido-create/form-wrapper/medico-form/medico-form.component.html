@@ -3,8 +3,8 @@
       <div *ngFor="let control of formArray.controls; let i = index">
         <label for="">{{getFormName(i)}}</label>
         <div [formGroupName]="i">
-          <ng-container *ngIf="getFormName(i) === 'hiv'; else text">
-            <input name="" type="checkbox" formControlName="hiv">Possui HIV?
+          <ng-container *ngIf="singleOptions.includes(getFormName(i)); else text">
+            <input name="" type="checkbox" formControlName="hiv">Possui {{getFormName(i)}}?
           </ng-container>
           <ng-template #text>
             <input [formControlName]="getFormName(i)" type="text"/>
@@ -20,4 +20,3 @@
 
 
 {{form.value | json}}
-{{hasHivForm | json}}

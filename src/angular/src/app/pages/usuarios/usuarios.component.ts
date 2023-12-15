@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IUserModel } from 'src/app/models/User';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -9,11 +10,19 @@ import { IUserModel } from 'src/app/models/User';
 })
 export class UsuariosComponent implements OnInit {
 
-  @Input() users!: IUserModel[]
+  @Input() users!: IUserModel[];
+  users$!: Observable<IUserModel[]>;
 
-  constructor() { }
+  constructor(
+    private usuariosService: UsuariosService,
+  ) { }
 
   ngOnInit(): void {
+    this.users$ = this.usuariosService.getUsers();
+  }
+
+  deleteUser($event: string) {
+    this.usuariosService.deleteUser($event).subscribe();
   }
 
 }

@@ -20,15 +20,15 @@ interface IHistoricoFilter {
   providedIn: 'root'
 })
 export class AcolhidosService {
-  
+
   baseURL = environment.BASE_URL;
-  
+
   constructor(
     private http: HttpClient
   ) { }
-    
+
   getHistorico(id: string, filtro: IHistoricoFilter): Observable<IHistorico[]> {
-    
+
     const url = new URL(this.baseURL + '/acolhidos/' + id + '/historicos');
 
     const params = new URLSearchParams();
@@ -76,6 +76,9 @@ export class AcolhidosService {
     let res: IAcolhido = {
       id: 1,
       nome: 'João Nascimento',
+      mae: 'Severina Nascimento',
+      pai: 'Tobias Nascimento',
+      naturalidade: 'Vila Velha - ES',
       cpf: '123.456.789-00',
       rg: '123456789',
       sexo: 'M',
@@ -93,6 +96,7 @@ export class AcolhidosService {
         bairro: 'Centro',
         cidade: 'São Paulo',
         uf: 'SP',
+        complemento: ''
       },
       contato: {
         id: 1,

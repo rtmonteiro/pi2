@@ -68,8 +68,8 @@ export function mapAcolhidoToAcolhidoApi(acolhido: any): IAcolhidoApi {
       name: acolhido.nome,
       mother: acolhido.mae,
       father: acolhido.pai,
-      birthDate: acolhido.dataNascimento, // Convert Date to string
-      gender: acolhido.sexo === 'M' ? 0 : 1, // Assuming 'M' is mapped to 0 and 'F' to 1
+      birthDate: new Date((acolhido.dataNascimento as string)).toLocaleDateString('pt-BR'),
+      gender: acolhido.sexo === 'M' ? 0 : 1,
       nationality: acolhido.naturalidade,
       address: mapEnderecoToEnderecoApi(acolhido.endereco),
       documents: !!acolhido.documentos ? acolhido.documentos.map(mapDocumentoToDocumentoApi) : []

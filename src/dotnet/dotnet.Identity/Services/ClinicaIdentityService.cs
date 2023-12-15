@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using dotnet.Application.DTOs.Request.ApplicationUser;
 using dotnet.Application.DTOs.Response.ApplicationUser;
+using dotnet.Application.Interfaces;
 using dotnet.Application.Models;
 using dotnet.Identity.Configurations;
 using Microsoft.AspNetCore.Identity;
@@ -10,8 +11,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet.Identity.Services;
 
-public class IdentityService(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager,
-    IOptions<JwtOptions> jwtOptions)
+public class ClinicaIdentityService(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager,
+    IOptions<JwtOptions> jwtOptions) : IIdentityService
 {
     private readonly JwtOptions _jwtOptions = jwtOptions.Value;
 
@@ -71,8 +72,13 @@ public class IdentityService(SignInManager<ApplicationUser> signInManager, UserM
             else
                 userLoginResponse.AddError("Usuário ou senha estão incorretos");
         }
-
         return userLoginResponse;
+    }
+    
+    public async Task LogoutUser( )
+    {
+         await signInManager.SignOutAsync();
+         
     }
 
     private async Task<UserLoginResponse> GenerateCredentials(string email)
@@ -111,8 +117,7 @@ public class IdentityService(SignInManager<ApplicationUser> signInManager, UserM
     private async Task<IList<Claim>> GetClaims(ApplicationUser user, bool adicionarClaimsUsuario)
     {
         var claims = await userManager.GetClaimsAsync(user);
-
-        claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
+        
         claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
         claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email!));
         claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
@@ -121,6 +126,7 @@ public class IdentityService(SignInManager<ApplicationUser> signInManager, UserM
 
         if (!adicionarClaimsUsuario) return claims;
         var userClaims = await userManager.GetClaimsAsync(user);
+        foreach (var claim in userClaims) claims.Add(claim);
         var roles = await userManager.GetRolesAsync(user);
         foreach (var role in roles) claims.Add(new Claim("role", role));
 

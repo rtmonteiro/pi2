@@ -1,6 +1,7 @@
 <h3>Pesquisar</h3>
 <div class="filter">
-    <input type="text" [attr.placeholder]="form.filtro" name="acolhido-name" id="acolhido-name-input">
+    <input [(ngModel)]="form.query" type="text" [attr.placeholder]="form.filtro" 
+        name="acolhido-name" id="acolhido-name-input">
     <select [(ngModel)]="form.filtro" name="acolhido-filtro" id="acolhido-filtro-select">
         <option *ngFor="let filtro of acolhidoFiltro" 
             [value]="filtro.value">{{filtro.name}}</option>

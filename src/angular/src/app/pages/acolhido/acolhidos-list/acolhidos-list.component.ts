@@ -21,6 +21,7 @@ export class AcolhidosListComponent implements OnInit {
   ];
 
   form = {
+    query: '',
     filtro: this.acolhidoFiltro[0].value,
     status: this.acolhidoStatus[0].value,
   };
@@ -33,6 +34,7 @@ export class AcolhidosListComponent implements OnInit {
 
   ngOnInit(): void {
     this.acolhidos$ = this.acolhidosService.getAcolhidos({
+      query: this.form.query,
       filtro: this.form.filtro,
       status: this.form.status,
     });

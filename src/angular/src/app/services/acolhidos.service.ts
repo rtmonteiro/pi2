@@ -6,6 +6,7 @@ import { IAcolhido, IAcolhidoItem } from '../models/Acolhido';
 import { EHistoricoType, IHistorico } from '../models/Historico';
 
 interface IAcolhidosFilter {
+  query: string;
   status: string;
   filtro: string;
 }
@@ -131,6 +132,7 @@ export class AcolhidosService {
   getAcolhidos(filter: IAcolhidosFilter): Observable<IAcolhidoItem[]> {
     const params = new URLSearchParams();
 
+    params.append('query', filter.query);
     params.append('status', filter.status);
     params.append('filtro', filter.filtro);
 

@@ -6,7 +6,7 @@ export class User {
 }
 
 export interface IUserModel {
-  id: number,
+  id: string,
   email: string,
   password: string,
   name: string,

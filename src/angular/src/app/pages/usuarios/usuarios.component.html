@@ -1,7 +1,11 @@
 <h1>Lista de Usuários</h1>
 
-<div class="user-list">
-  <app-usuario-item [user]="user" *ngFor="let user of users"></app-usuario-item>
+<div *ngIf="(users$ | async) as usersResponse" class="user-list">
+  <app-usuario-item 
+    [user]="user" 
+    *ngFor="let user of usersResponse"
+    (deleteUserEvent)="deleteUser($event)"
+    ></app-usuario-item>
 </div>
 
 <div class="footer">

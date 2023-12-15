@@ -29,6 +29,17 @@ builder.Services.AddDefaultIdentity<ApplicationUser>()
     .AddEntityFrameworkStores<IdentityContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name:"CA", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowAnyOrigin();
+    });
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthentication(builder.Configuration);
@@ -40,7 +51,12 @@ builder.Services.AddScoped<HistoricService>();
 
 builder.Services.AddMapper();
 
-
+builder.Services.Configure<IISServerOptions>(options =>
+    {
+        options.AuthenticationDisplayName = null;
+        options.AutomaticAuthentication = false;
+        options.AllowSynchronousIO = true;
+    });
 
 var app = builder.Build();
 
@@ -55,14 +71,13 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 app.UseHttpsRedirection();
 
-var cookiePolicyOptions = new CookiePolicyOptions
-{
-    MinimumSameSitePolicy = SameSiteMode.Strict,
-};
-app.UseCookiePolicy(cookiePolicyOptions);
-
 app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+app.UseCors("CA");
 app.Run();

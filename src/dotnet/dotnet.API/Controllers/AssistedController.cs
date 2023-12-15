@@ -8,6 +8,8 @@ using dotnet.Application.DTOs.Response.Assisted;
 using dotnet.Application.DTOs.Response.GetAssisted;
 using dotnet.Application.Models;
 using dotnet.Application.Models.Info;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet.API.Controllers;
@@ -15,10 +17,12 @@ namespace dotnet.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[EnableCors]
 public class AssistedController(AssistedService assistedService,
     HistoricService historicService,IMapper mapper) : ControllerBase
 {
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Create(AssistedCreateRequest userRegister)
     {
         var assisted = mapper.Map<Assisted>(userRegister);
@@ -33,7 +37,7 @@ public class AssistedController(AssistedService assistedService,
     }
 
     [HttpPost("AddInfo/{id}")]
-    public async Task<IActionResult> AddInfo(long id,[FromForm]HistoricCreateRequest historicCreateRequest)
+    public async Task<IActionResult> AddInfo(long id,[FromBody]HistoricCreateRequest historicCreateRequest)
     {
         historicCreateRequest.RegisterDate = DateTime.Now;
         historicCreateRequest.InfoEntry = null;

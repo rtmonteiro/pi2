@@ -230,6 +230,10 @@ namespace dotnet.API.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
+                    b.Property<string>("PersonContacted")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Reason")
                         .IsRequired()
                         .HasColumnType("text");

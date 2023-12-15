@@ -16,7 +16,7 @@ export class LoginService {
   ) { }
 
   login(user: User): Observable<UserResponse> {
-    return this.http.post<UserResponse>(`${this.baseURL}/login`, user)
+    return this.http.post<UserResponse>(`${this.baseURL}/User/login`, user)
       .pipe(tap((res: UserResponse) => {
         localStorage.setItem('accessToken', res.accessToken)
       }))
